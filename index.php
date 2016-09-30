@@ -6,6 +6,9 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
+
+    <?php $today = date('l'); ?>
+
     <div class="container">
       <div class="row text-center">
         <h1>UVic Restaurant Open/Close (Rough Setup)</h1>
@@ -17,8 +20,6 @@
       <hr>
       <div class="col-md-1">
         <?php
-          $today = date('l');
-
           if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') < 14)){
             echo '<img src="/images/green-dot.png">';
           } else {
@@ -34,7 +35,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+          if (($today == "Monday" || "Tuesday" || "Wednesday") && (date('H') >= 8) && (date('H') < 21) || ($today == "Friday") && (date('H') >= 8) && (date('H') < 16) || ($today == "Saturday") && (date('H') >= 10) && (date('H') < 16) || ($today == "Sunday") && (date('H') >= 10) && (date('H') < 21)){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
@@ -45,7 +50,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+          if ((date('H') >= 7 && ('i' < 30)) && (date('H') < 19 && ('i' < 30)) ){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
@@ -56,7 +65,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+          if ((date('H') >= 11 && ('i' < 30)) && (date('H') < 23 && ('i' < 30))){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
@@ -67,7 +80,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 8) && (date('H') < 15)){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
@@ -78,7 +95,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 11) && (date('H') < 18) || ($today == "Friday") && (date('H') >= 11) && (date('H') < 15)){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
@@ -89,7 +110,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+        if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') < 16) || ($today == "Friday") && (date('H') >= 8) && (date('H') < 15)){
+          echo '<img src="/images/green-dot.png">';
+        } else {
+          echo '<img src="/images/red-dot.png">';
+        }
         ?>
       </div>
       <div class="col-md-2">
@@ -100,7 +125,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+        	if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') < 18) || ($today == "Friday") && (date('H') >= 8) && (date('H') < 15)){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
@@ -111,7 +140,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+        if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 8) && (date('H') < 15)){
+          echo '<img src="/images/green-dot.png">';
+        } else {
+          echo '<img src="/images/red-dot.png">';
+        }
         ?>
       </div>
       <div class="col-md-2">
@@ -122,7 +155,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+      		if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 11) && (date('H') < 14 && ('i' < 30)) || ($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Sunday") && (date('H') >= 16 && ('i' < 30)) && (date('H') < 19 && ('i' < 30))){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
@@ -133,7 +170,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 11) && (date('H') < 14) || ($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 16) && (date('H') < 19) || ($today == "Friday") && (date('H') >= 11) && (date('H') < 14) || ($today == "Sunday") && (date('H') >= 16) && (date('H') < 19)){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
@@ -144,7 +185,11 @@
       </div>
       <div class="col-md-1">
         <?php
-
+      		if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 11) && (date('H') < 23 && ('i' < 30)) || ($today == "Saturday" || "Sunday") && (date('H') >= 11 && ('i' < 30)) && (date('H') < 23 && ('i' < 30))){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
         ?>
       </div>
       <div class="col-md-2">
