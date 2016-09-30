@@ -2,19 +2,35 @@
 <html>
   <head>
     <title>Uvic Food</title>
-      <link rel="stylesheet" type="text/css" href="index.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
     <div class="container">
-      <div class="row">
+      <div class="row text-center">
         <h1>UVic Restaurant Open/Close (Rough Setup)</h1>
       </div>
-      <div class="row">
+      <hr>
+      <div class="row text-center">
         <?php echo "It is " . date('l F jS Y h:i:s A'); ?>
       </div>
-      <div class="col-md-8">
+      <hr>
+      <div class="col-md-1">
+        <?php
+          $today = date('l');
+          $weekday = array("weekday" => "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+
+          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') < 14)){
+            echo '<img src="/images/green-dot.png">';
+          } else {
+            echo '<img src="/images/red-dot.png">';
+          }
+        ?>
+      </div>
+      <div class="col-md-2">
         <h3><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>
+      </div>
+      <div class="col-md-8">
     		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
       </div>
       <div class="col-md-8">
