@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <div class="row">
-        <h1>UVic Restaurant Open/Close</h1>
+        <h1>UVic Restaurant Open/Close (Rough Setup)</h1>
       </div>
       <div class="row">
         <?php echo "It is " . date('l F jS Y h:i:s A'); ?>
