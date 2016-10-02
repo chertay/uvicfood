@@ -11,16 +11,17 @@
 
     <div class="container">
       <div class="row text-center">
-        <h1>UVic Restaurant Open/Close (Rough Setup)</h1>
+        <h1>UVic Restaurant Open/Close</h1>
       </div>
       <hr>
-      <div class="row text-center">
-        <?php echo "It is " . date('l F jS Y h:i:s A'); ?>
+      <div class="row text-center timenow">
+        <h2>Current Time:</h2>
+        <h3><?php echo date('l M jS h:i A'); ?></h3>
       </div>
       <hr>
       <div class="col-md-1">
         <?php
-          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') < 14)){
+          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') <= 15) || (($today == "Friday") && (date('H') >= 8) && (date('H') <= 14))){
             echo '<img src="/images/green-dot.png">';
           } else {
             echo '<img src="/images/red-dot.png">';
@@ -35,7 +36,15 @@
       </div>
       <div class="col-md-1">
         <?php
-          if (($today == "Monday" || "Tuesday" || "Wednesday") && (date('H') >= 8) && (date('H') < 21) || ($today == "Friday") && (date('H') >= 8) && (date('H') < 16) || ($today == "Saturday") && (date('H') >= 10) && (date('H') < 16) || ($today == "Sunday") && (date('H') >= 10) && (date('H') < 21)){
+          // $open_days = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+          // foreach ($open_days as $value) {
+          //   if ($today == $value) {
+          //     echo '<a href="www.castanet.net"><img src="/images/green-dot.png"></a>';
+          //   } else {
+          //     echo '<img src="/images/red-dot.png">';
+          //   }
+          // }
+          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') <= 21) || (($today == "Friday") && (date('H') >= 8) && (date('H') <= 16) || ($today == "Saturday") && (date('H') >= 10) && (date('H') <= 16) || ($today == "Sunday") && (date('H') >= 10) && (date('H') <= 21))){
             echo '<img src="/images/green-dot.png">';
           } else {
             echo '<img src="/images/red-dot.png">';
@@ -50,7 +59,7 @@
       </div>
       <div class="col-md-1">
         <?php
-          if ((date('H') >= 7 && ('i' < 30)) && (date('H') < 19 && ('i' < 30)) ){
+          if ((date('H') >= 7 && (date('i') < 30)) && (date('H') < 23 && (date('i') < 55)) ){
             echo '<img src="/images/green-dot.png">';
           } else {
             echo '<img src="/images/red-dot.png">';
@@ -65,7 +74,7 @@
       </div>
       <div class="col-md-1">
         <?php
-          if ((date('H') >= 11 && ('i' < 30)) && (date('H') < 23 && ('i' < 30))){
+          if ((date('H') >= 11 && (date('i') < 30)) && (date('H') < 23 && (date('i') < 30))){
             echo '<img src="/images/green-dot.png">';
           } else {
             echo '<img src="/images/red-dot.png">';
@@ -155,7 +164,7 @@
       </div>
       <div class="col-md-1">
         <?php
-      		if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 11) && (date('H') < 14 && ('i' < 30)) || ($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Sunday") && (date('H') >= 16 && ('i' < 30)) && (date('H') < 19 && ('i' < 30))){
+      		if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 11) && (date('H') < 14 && (date('i') < 30)) || ($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Sunday") && (date('H') >= 16 && (date('i') < 30)) && (date('H') < 19 && (date('i') < 30))){
             echo '<img src="/images/green-dot.png">';
           } else {
             echo '<img src="/images/red-dot.png">';
@@ -186,7 +195,7 @@
       </div>
       <div class="col-md-1">
         <?php
-      		if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 11) && (date('H') < 23 && ('i' < 30)) || ($today == "Saturday" || "Sunday") && (date('H') >= 11 && ('i' < 30)) && (date('H') < 23 && ('i' < 30))){
+      		if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 11) && (date('H') < 23 && (date('i') < 30)) || ($today == "Saturday" || "Sunday") && (date('H') >= 11 && (date('i') < 30)) && (date('H') < 23 && (date('i') < 30))){
             echo '<img src="/images/green-dot.png">';
           } else {
             echo '<img src="/images/red-dot.png">';

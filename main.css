@@ -1,7 +1,7 @@
 h1 {
   color: #ffffff !important;
   border: double;
-  border-radius: 50%;
+  border-radius: 10%;
   background-color: #0B5995;
   padding: 15px;
 }
@@ -9,4 +9,9 @@ h1 {
 img {
   width: 60px;
   height: 60px;
+}
+
+.timenow {
+  font-family: "Impact", sans-serif;
+  color: #0B5995;
 }
