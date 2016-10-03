@@ -32,7 +32,14 @@
         <h3><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>
       </div>
       <div class="col-md-9">
-    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    		<p>Award winning! Located in the Fine Arts building, Arts Place recently received an award for interior beauty in the wood design category. Bistro seating inside with seating areas directly outside.</p>
+        <ul>
+          <li>specialty coffees and teas</li>
+          <li>alternate beverages</li>
+          <li>salads</li>
+          <li>sandwiches and wraps</li>
+          <li>pastries, cakes and other sweets</li>
+        </ul>
       </div>
       <div class="col-md-1">
         <?php
