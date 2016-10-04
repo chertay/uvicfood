@@ -7,7 +7,10 @@
   </head>
   <body>
 
-    <?php $today = date('l'); ?>
+    <?php
+    $today = date('l');
+    $current_time = date("h:i:a");
+    ?>
 
     <div class="container">
       <div class="row text-center">
@@ -22,12 +25,15 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') <= 15) || (($today == "Friday") && (date('H') >= 8) && (date('H') <= 14))){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
-            } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
-            }
+              $open = date("h:i:a", strtotime("8:00am"));
+              $close = date("h:i:a", strtotime("9:00pm"));
+              $fri_close = date("h:i:a", strtotime("2:00pm"));
+
+              if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close))){
+                echo '<img src="/images/green-dot.png" class="small_dot">';
+              } else {
+                echo '<img src="/images/red-dot.png" class="small_dot">';
+              }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -49,12 +55,18 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') <= 21) || (($today == "Friday") && (date('H') >= 8) && (date('H') <= 16) || ($today == "Saturday") && (date('H') >= 10) && (date('H') <= 16) || ($today == "Sunday") && (date('H') >= 10) && (date('H') <= 21))){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
-            } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
-            }
+              $open = date("h:i:a", strtotime("8:00am"));
+              $close = date("h:i:a", strtotime("9:00pm"));
+              $fri_close = date("h:i:a", strtotime("4:00pm"));
+              $weekend_open = date("h:i:a", strtotime("10:00am"));
+              $sat_close = date("h:i:a", strtotime("4:00pm"));
+              $sun_close = date("h:i:a", strtotime("9:00pm"));
+
+              if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)) || (($today == "Saturday") && ($current_time >= $weekend_open) && ($current_time <= $sat_close)) || (($today == "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $sun_close))){
+                echo '<img src="/images/green-dot.png" class="small_dot">';
+              } else {
+                echo '<img src="/images/red-dot.png" class="small_dot">';
+              }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -77,9 +89,11 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-            if ((date('H') >= 7 && (date('i') < 30)) && (date('H') < 23 && (date('i') < 30)) ){
+            $open = date("h:i:a", strtotime("7:30am"));
+            $close = date("h:i:a", strtotime("7:30pm"));
+
+            if (($current_time >= $open) && ($current_time <= $close)){
               echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
             } else {
               echo '<img src="/images/red-dot.png" class="small_dot">';
             }
@@ -107,9 +121,12 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ((date('H') >= 11) && ((date('H') <= 23) && (date('i') <= 30))) || ($today == "Saturday" || "Sunday") && (((date('H') >= 11) && (date('i') >= 30)) && ((date('H') <= 23) && (date('i') <= 30)))){
+          $open = date("h:i:a", strtotime("11:00am"));
+          $close = date("h:i:a", strtotime("11:30pm"));
+          $weekend_open = date("h:i:a", strtotime("11:30am"));
+
+            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Saturday" || "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $close))){
               echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
             } else {
               echo '<img src="/images/red-dot.png" class="small_dot">';
             }
@@ -135,9 +152,11 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 8) && (date('H') < 15)){
+          $open = date("h:i:a", strtotime("8:00am"));
+          $close = date("h:i:a", strtotime("3:30pm"));
+
+            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)){
               echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
             } else {
               echo '<img src="/images/red-dot.png" class="small_dot">';
             }
@@ -162,9 +181,11 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 9) && (date('H') < 16)){
+          $open = date("h:i:a", strtotime("9:00am"));
+          $close = date("h:i:a", strtotime("4:00pm"));
+
+            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)){
               echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
             } else {
               echo '<img src="/images/red-dot.png" class="small_dot">';
             }
@@ -189,12 +210,15 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') < 16) || ($today == "Friday") && (date('H') >= 8) && (date('H') < 15)){
-            echo '<img src="/images/green-dot.png" class="small_dot">';
-            echo 'Open for "x" minutes';
-          } else {
-            echo '<img src="/images/red-dot.png" class="small_dot">';
-          }
+          $open = date("h:i:a", strtotime("8:00am"));
+          $close = date("h:i:a", strtotime("4:00pm"));
+          $fri_close = date("h:i:a", strtotime("3:00pm"));
+
+            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close))){
+              echo '<img src="/images/green-dot.png" class="small_dot">';
+            } else {
+              echo '<img src="/images/red-dot.png" class="small_dot">';
+            }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -215,12 +239,16 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 8) && (date('H') < 19)) || (($today == "Friday") && (date('H') >= 8) && (date('H') <= 15)) || (($today == "Saturday" || "Sunday") && (date('H') >= 9) && (date('H') <= 15))){
-            echo '<img src="/images/green-dot.png" class="small_dot">';
-            echo 'Open for "x" minutes';
-          } else {
-            echo '<img src="/images/red-dot.png" class="small_dot">';
-          }
+          $open = date("h:i:a", strtotime("8:00am"));
+          $close = date("h:i:a", strtotime("7:00pm"));
+          $early_close = date("h:i:a", strtotime("3:00pm"));
+          $weekend_open = date("h:i:a", strtotime("9:00am"));
+
+            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Friday") && ($current_time >= $open) && ($current_time <= $early_close)) || (($today == "Saturday" || "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $early_close))){
+              echo '<img src="/images/green-dot.png" class="small_dot">';
+            } else {
+              echo '<img src="/images/red-dot.png" class="small_dot">';
+            }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -248,9 +276,11 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          	if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 8) && (date('H') < 15)){
+          $open = date("h:i:a", strtotime("8:00am"));
+          $close = date("h:i:a", strtotime("3:00pm"));
+
+            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)){
               echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
             } else {
               echo '<img src="/images/red-dot.png" class="small_dot">';
             }
@@ -276,12 +306,14 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 8) && (date('H') < 15)){
-            echo '<img src="/images/green-dot.png" class="small_dot">';
-            echo 'Open for "x" minutes';
-          } else {
-            echo '<img src="/images/red-dot.png" class="small_dot">';
-          }
+          $open = date("h:i:a", strtotime("8:00am"));
+          $close = date("h:i:a", strtotime("3:00pm"));
+
+            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)){
+              echo '<img src="/images/green-dot.png" class="small_dot">';
+            } else {
+              echo '<img src="/images/red-dot.png" class="small_dot">';
+            }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -305,9 +337,13 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-        		if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 11) && (date('H') <= 14 && (date('i') < 30)) || ($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Sunday") && (date('H') >= 16 && (date('i') < 30)) && (date('H') < 19 && (date('i') < 30))){
+          $open = date("h:i:a", strtotime("11:00am"));
+          $close = date("h:i:a", strtotime("2:30pm"));
+          $late_open = date("h:i:a", strtotime("4:30am"));
+          $late_close = date("h:i:a", strtotime("7:30pm"));
+
+            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Sunday") && ($current_time >= $late_open) && ($current_time <= $late_close))){
               echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
             } else {
               echo '<img src="/images/red-dot.png" class="small_dot">';
             }
@@ -337,9 +373,13 @@
         <div class="col-md-1"></div>
         <div class="col-md-1">
           <?php
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 11) && (date('H') < 14) || ($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && (date('H') >= 16) && (date('H') < 19) || ($today == "Friday") && (date('H') >= 11) && (date('H') < 14) || ($today == "Sunday") && (date('H') >= 16) && (date('H') < 19)){
+          $open = date("h:i:a", strtotime("11:00am"));
+          $close = date("h:i:a", strtotime("2:30pm"));
+          $late_open = date("h:i:a", strtotime("4:30am"));
+          $late_close = date("h:i:a", strtotime("7:30pm"));
+
+            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Sunday") && ($current_time >= $late_open) && ($current_time <= $late_close))){
               echo '<img src="/images/green-dot.png" class="smaller_dot">';
-              echo 'Open for "x" minutes';
             } else {
               echo '<img src="/images/red-dot.png" class="smaller_dot">';
             }
@@ -359,9 +399,12 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-        		if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && (date('H') >= 11) && (date('H') < 23 && (date('i') < 30)) || ($today == "Saturday" || "Sunday") && (date('H') >= 11 && (date('i') < 30)) && (date('H') < 23 && (date('i') < 30))){
+          $open = date("h:i:a", strtotime("11:00am"));
+          $close = date("h:i:a", strtotime("11:30pm"));
+          $weekend_open = date("h:i:a", strtotime("11:30am"));
+
+            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Saturday" || "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $close))){
               echo '<img src="/images/green-dot.png" class="small_dot">';
-              echo 'Open for "x" minutes';
             } else {
               echo '<img src="/images/red-dot.png" class="small_dot">';
             }

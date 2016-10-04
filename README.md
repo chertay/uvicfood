@@ -9,6 +9,9 @@ This is my first attempt at combining Laravel and PHP to create an app so I want
 
 Currently, it is functioning at a basic level, although there needs to be some modification to the open/closed times so that the correct light is on when the closing time is XX:30 (currently, the one's with 30min (such as 11:30) times are glitchy)
 
+####Update:
+After rebuilding my php for the times, I believe I have fixed the 30min issue. More testing required to confirm, but I am pretty confident it's fixed.
+
 ##Future Plans
 Looking to set up a "countdown clock" that will display remaining time open when you are checking the app within 30min of the closing time.
 
