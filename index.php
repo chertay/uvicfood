@@ -9,7 +9,12 @@
 
     <?php
     $today = date('l');
-    $current_time = date("h:i:a");
+    $current_time = date("H:i A");
+    $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
+    $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
+    $weekends = array("Saturday", "Sunday");
+    $open_img = '<img src="/images/green-dot.png" class="small_dot">';
+    $close_img = '<img src="/images/red-dot.png" class="small_dot">';
     ?>
 
     <div class="container">
@@ -25,15 +30,17 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-              $open = date("h:i:a", strtotime("8:00am"));
-              $close = date("h:i:a", strtotime("9:00pm"));
-              $fri_close = date("h:i:a", strtotime("2:00pm"));
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("21:00"));
+          $fri_close = date("H:i A", strtotime("14:00"));
 
-              if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close))){
-                echo '<img src="/images/green-dot.png" class="small_dot">';
-              } else {
-                echo '<img src="/images/red-dot.png" class="small_dot">';
-              }
+            if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_img;
+            } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
+              echo $open_img;
+            } else {
+              echo $close_img;
+            }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -55,18 +62,24 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-              $open = date("h:i:a", strtotime("8:00am"));
-              $close = date("h:i:a", strtotime("9:00pm"));
-              $fri_close = date("h:i:a", strtotime("4:00pm"));
-              $weekend_open = date("h:i:a", strtotime("10:00am"));
-              $sat_close = date("h:i:a", strtotime("4:00pm"));
-              $sun_close = date("h:i:a", strtotime("9:00pm"));
+            $open = date("H:i A", strtotime("8:00"));
+            $close = date("H:i A", strtotime("21:00"));
+            $fri_close = date("H:i A", strtotime("16:00"));
+            $weekend_open = date("H:i A", strtotime("10:00"));
+            $sat_close = date("H:i A", strtotime("16:00"));
+            $sun_close = date("H:i A", strtotime("21:00"));
 
-              if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)) || (($today == "Saturday") && ($current_time >= $weekend_open) && ($current_time <= $sat_close)) || (($today == "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $sun_close))){
-                echo '<img src="/images/green-dot.png" class="small_dot">';
-              } else {
-                echo '<img src="/images/red-dot.png" class="small_dot">';
-              }
+            if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_img;
+            } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
+              echo $open_img;
+            } elseif (($today == "Saturday") && ($current_time >= $weekend_open) && ($current_time <= $sat_close)){
+              echo $open_img;
+            } elseif (($today == "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $sun_close)){
+              echo $open_img;
+            } else {
+              echo $close_img;
+            }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -89,13 +102,13 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-            $open = date("h:i:a", strtotime("7:30am"));
-            $close = date("h:i:a", strtotime("7:30pm"));
+            $open = date("H:i A", strtotime("7:30"));
+            $close = date("H:i A", strtotime("19:30"));
 
             if (($current_time >= $open) && ($current_time <= $close)){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
+              echo $open_img;
             } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
+              echo $close_img;
             }
           ?>
         </div>
@@ -121,14 +134,16 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("11:00am"));
-          $close = date("h:i:a", strtotime("11:30pm"));
-          $weekend_open = date("h:i:a", strtotime("11:30am"));
+          $open = date("H:i A", strtotime("11:00"));
+          $close = date("H:i A", strtotime("23:30"));
+          $weekend_open = date("H:i A", strtotime("11:30"));
 
-            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Saturday" || "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $close))){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)) {
+              echo $open_img;
+            } elseif (in_array($today, $weekends) && ($current_time >= $weeked_open) && ($current_time <= $close)) {
+              echo $open_img;
             } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
+              echo $close_img;
             }
           ?>
         </div>
@@ -152,13 +167,13 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("8:00am"));
-          $close = date("h:i:a", strtotime("3:30pm"));
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("15:30"));
 
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_img;
             } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
+              echo $close_img;
             }
           ?>
         </div>
@@ -181,14 +196,14 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("9:00am"));
-          $close = date("h:i:a", strtotime("4:00pm"));
+          $open = date("H:i A", strtotime("9:00"));
+          $close = date("H:i A", strtotime("16:00"));
 
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
-            } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
-            }
+          if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+            echo $open_img;
+          } else {
+            echo $close_img;
+          }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -210,15 +225,17 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("8:00am"));
-          $close = date("h:i:a", strtotime("4:00pm"));
-          $fri_close = date("h:i:a", strtotime("3:00pm"));
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("16:00"));
+          $fri_close = date("H:i A", strtotime("15:00"));
 
-            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close))){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
-            } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
-            }
+          if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
+            echo $open_img;
+          } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
+            echo $open_img;
+          } else {
+            echo $close_img;
+          }
           ?>
         </div>
         <div class="col-md-3 text-center">
@@ -239,15 +256,20 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("8:00am"));
-          $close = date("h:i:a", strtotime("7:00pm"));
-          $early_close = date("h:i:a", strtotime("3:00pm"));
-          $weekend_open = date("h:i:a", strtotime("9:00am"));
+          $weekends = array("Saturday", "Sunday");
+          $open = date("H:i A", strtotime("8:00"));
+          $weekend_open = date("H:i A", strtotime("9:00"));
+          $close = date("H:i A", strtotime("19:00"));
+          $early_close = date("H:i A", strtotime("15:00"));
 
-            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Friday") && ($current_time >= $open) && ($current_time <= $early_close)) || (($today == "Saturday" || "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $early_close))){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
+            if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_img;
+            } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $early_close)){
+              echo $open_img;
+            } elseif (in_array($today, $weekends) && ($current_time >= $weekend_open) && ($current_time <= $early_close)){
+              echo $open_img;
             } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
+              echo $close_img;
             }
           ?>
         </div>
@@ -276,13 +298,13 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("8:00am"));
-          $close = date("h:i:a", strtotime("3:00pm"));
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("15:00"));
 
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_img;
             } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
+              echo $close_img;
             }
           ?>
         </div>
@@ -306,13 +328,13 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("8:00am"));
-          $close = date("h:i:a", strtotime("3:00pm"));
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("15:00"));
 
-            if (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_img;
             } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
+              echo $close_img;
             }
           ?>
         </div>
@@ -337,15 +359,17 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("11:00am"));
-          $close = date("h:i:a", strtotime("2:30pm"));
-          $late_open = date("h:i:a", strtotime("4:30am"));
-          $late_close = date("h:i:a", strtotime("7:30pm"));
+          $open = date("H:i A", strtotime("11:00"));
+          $close = date("H:i A", strtotime("14:30"));
+          $late_open = date("H:i A", strtotime("16:30"));
+          $late_close = date("H:i A", strtotime("19:30"));
 
-            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Sunday") && ($current_time >= $late_open) && ($current_time <= $late_close))){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
+            if (((in_array($today, $mon_to_thurs) || ($today == "Friday")) && ($current_time >= $open) && ($current_time <= $close))){
+              echo $open_img;
+            } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_open) && ($current_time <= $late_close))){
+              echo $open_img;
             } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
+              echo $close_img;
             }
           ?>
         </div>
@@ -373,15 +397,19 @@
         <div class="col-md-1"></div>
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("11:00am"));
-          $close = date("h:i:a", strtotime("2:30pm"));
-          $late_open = date("h:i:a", strtotime("4:30am"));
-          $late_close = date("h:i:a", strtotime("7:30pm"));
+          $open = date("H:i A", strtotime("11:00"));
+          $close = date("H:i A", strtotime("14:30"));
+          $late_open = date("H:i A", strtotime("16:30"));
+          $late_close = date("H:i A", strtotime("19:30"));
+          $open_img_sm = '<img src="/images/green-dot.png" class="smaller_dot">';
+          $close_img_sm = '<img src="/images/red-dot.png" class="smaller_dot">';
 
-            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Sunday") && ($current_time >= $late_open) && ($current_time <= $late_close))){
-              echo '<img src="/images/green-dot.png" class="smaller_dot">';
+            if (((in_array($today, $mon_to_thurs) || ($today == "Friday")) && ($current_time >= $open) && ($current_time <= $close))){
+              echo $open_img;
+            } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_open) && ($current_time <= $late_close))){
+              echo $open_img_sm;
             } else {
-              echo '<img src="/images/red-dot.png" class="smaller_dot">';
+              echo $close_img_sm;
             }
           ?>
         </div>
@@ -399,14 +427,16 @@
       <div class="row">
         <div class="col-md-1">
           <?php
-          $open = date("h:i:a", strtotime("11:00am"));
-          $close = date("h:i:a", strtotime("11:30pm"));
-          $weekend_open = date("h:i:a", strtotime("11:30am"));
+          $open = date("H:i A", strtotime("11:00"));
+          $close = date("H:i A", strtotime("23:30"));
+          $weekend_open = date("H:i A", strtotime("11:30"));
 
-            if ((($today == "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday") && ($current_time >= $open) && ($current_time <= $close)) || (($today == "Saturday" || "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $close))){
-              echo '<img src="/images/green-dot.png" class="small_dot">';
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_img;
+            } elseif (in_array($today, $weekends) && ($current_time >= $weekend_open) && ($current_time <= $close)){
+              echo $open_img;
             } else {
-              echo '<img src="/images/red-dot.png" class="small_dot">';
+              echo $close_img;
             }
           ?>
         </div>
