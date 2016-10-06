@@ -7,7 +7,16 @@
   </head>
   <body>
 
-    <?php include 'main.php';?>
+    <?php
+    date_default_timezone_set('America/Vancouver');
+    $today = date('l');
+    $current_time = date("H:i A");
+    $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
+    $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
+    $weekends = array("Saturday", "Sunday");
+    $open_i = '<img src="/images/open.png" class="status">';
+    $close_i = '<img src="/images/closed.png" class="status">';
+    ?>
 
     <div class="container">
       <div class="row text-center">
@@ -20,13 +29,25 @@
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img);?>
+          <?php
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("21:00"));
+          $fri_close = date("H:i A", strtotime("14:00"));
+
+            if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_i;
+            } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>
           <img src="/images/arts-place.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
       		<p>Award winning! Located in the Fine Arts building, Arts Place recently received an award for interior beauty in the wood design category. Bistro seating inside with seating areas directly outside.</p>
           <ul>
             <li>specialty coffees and teas</li>
@@ -36,20 +57,36 @@
             <li>pastries, cakes and other sweets</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/arts-map.gif" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php bibliocafe($today, $current_time, $mon_to_thurs, $open_img, $close_img) ?>
+          <?php
+            $open = date("H:i A", strtotime("8:00"));
+            $close = date("H:i A", strtotime("21:00"));
+            $fri_close = date("H:i A", strtotime("16:00"));
+            $weekend_open = date("H:i A", strtotime("10:00"));
+            $sat_close = date("H:i A", strtotime("16:00"));
+            $sun_close = date("H:i A", strtotime("21:00"));
+
+            if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_i;
+            } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
+              echo $open_i;
+            } elseif (($today == "Saturday") && ($current_time >= $weekend_open) && ($current_time <= $sat_close)){
+              echo $open_i;
+            } elseif (($today == "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $sun_close)){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/bibliocafe/index.php">Bibliocafé</a></h3>
           <img src="/images/bibliocafe.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
       		<p>Surrounded by glass, view the vivid seasonal changes while enjoying your selection – indoors with ample booth, table and comfortable circle chairs or outdoors with patio seating.</p>
           <ul>
             <li>specialty coffees and teas</li>
@@ -60,20 +97,26 @@
             <li>cakes, squares, pastries and other sweets</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/biblio-map.gif" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php cadboro_commons($current_time, $open_img, $close_img) ?>
+          <?php
+            $open = date("H:i A", strtotime("7:30"));
+            $close = date("H:i A", strtotime("19:30"));
+
+            if (($current_time >= $open) && ($current_time <= $close)){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3 class="cadboro"><a href="http://www.uvic.ca/services/food/where/cadborocommons/index.php">Cadboro Commons</a></h3>
           <img src="/images/cadboro_commons.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Come see what you’ve been missing! Large indoor seating allows for study area, private or group seating.</p>
           <ul>
             <li>made to order grill items</li>
@@ -86,20 +129,29 @@
             <li>an assortment of beverages including fresh coffee and tea</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php caps_bistro($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("11:00"));
+          $close = date("H:i A", strtotime("23:30"));
+          $weekend_open = date("H:i A", strtotime("11:30"));
+
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)) {
+              echo $open_i;
+            } elseif (in_array($today, $weekends) && ($current_time >= $weeked_open) && ($current_time <= $close)) {
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/capsbistro/index.php">Cap's Bistro</a></h3>
           <img src="/images/caps-bistro.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Offers charming table seating with natural lighting, as well as TV lounge area for leisure.</p>
           <ul>
             <li>made to order sandwiches and wraps</li>
@@ -110,20 +162,26 @@
             <li>specialty coffee and a variety of beverages</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php court_cafe($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("15:30"));
+
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/courtcafe/index.php">Court Café</a></h3>
           <img src="/images/court-cafe.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Nestled in the Fraser building with ample indoor seating.</p>
           <ul>
             <li>a selection of wraps and sandwiches</li>
@@ -133,20 +191,26 @@
             <li>assorted beverages including coffee and tea</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/court-map.gif" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php halftime($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("9:00"));
+          $close = date("H:i A", strtotime("16:00"));
+
+          if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+            echo $open_i;
+          } else {
+            echo $close_i;
+          }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/halftime/index.php">Halftime</a></h3>
           <img src="/images/halftime.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Located in UVic's Centre for Athletics, Recreation and Special Abilities (CARSA) building just inside the main entrance across from CanAssist.</p>
           <ul>
             <li>smoothie bar</li>
@@ -156,20 +220,29 @@
             <li>sports drinks and a wide assortment of cold beverages</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/halftime-map.jpg" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php macs($today, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("16:00"));
+          $fri_close = date("H:i A", strtotime("15:00"));
+
+          if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
+            echo $open_i;
+          } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
+            echo $open_i;
+          } else {
+            echo $close_i;
+          }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/macs/index.php">Macs</a></h3>
           <img src="/images/macs.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Newly revamped with lounge seating and widescreen TVs! Enjoy table and individual seating in a relaxed environment. Located in the MacLaurin Building.</p>
           <ul>
             <li>made to order sandwiches, wraps and salads</li>
@@ -178,14 +251,27 @@
             <li>a wide selection of beverages</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/mac-map.gif" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php mystic_market($today, $mon_to_thurs, $current_time, $open_img, $close_img)?>
+          <?php
+          $weekends = array("Saturday", "Sunday");
+          $open = date("H:i A", strtotime("8:00"));
+          $weekend_open = date("H:i A", strtotime("9:00"));
+          $close = date("H:i A", strtotime("19:00"));
+          $early_close = date("H:i A", strtotime("15:00"));
+
+            if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_i;
+            } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $early_close)){
+              echo $open_i;
+            } elseif (in_array($today, $weekends) && ($current_time >= $weekend_open) && ($current_time <= $early_close)){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/mysticmarket/index.php">Mystic Market</a></h3>
@@ -211,13 +297,22 @@
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php nibbles_and_bytes($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("15:00"));
+
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/nibblesbytes/index.php">Nibbles & Bytes</a></h3>
           <img src="/images/nibbles.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Your Engineering Lab Wing food destination!</p>
           <ul>
             <li>freshly made gourmet pizza</li>
@@ -228,20 +323,26 @@
             <li>a range of beverages including fresh coffee and tea</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/nibbles-map.gif" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php scicafe($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("8:00"));
+          $close = date("H:i A", strtotime("15:00"));
+
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/scicafe/index.php">SciCafé</a></h3>
           <img src="/images/scicafe.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Comfortable bright seating area complete with natural lighting provides a perfect place to enjoy your selection.</p>
           <ul>
             <li>paninis and calzones</li>
@@ -253,20 +354,30 @@
             <li>assorted beverages including fresh coffee and tea</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/scicafe-map.gif" class="map">
-        </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php village_greens($today, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("11:00"));
+          $close = date("H:i A", strtotime("14:30"));
+          $late_open = date("H:i A", strtotime("16:30"));
+          $late_close = date("H:i A", strtotime("19:30"));
+
+            if (((in_array($today, $mon_to_thurs) || ($today == "Friday")) && ($current_time >= $open) && ($current_time <= $close))){
+              echo $open_i;
+            } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_open) && ($current_time <= $late_close))){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/villagegreens/index.php">Village Greens</a></h3>
           <img src="/images/village-greens.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Award winning vegetarian and vegan options. Enjoy booth or table seating with a trendy ambience and natural lighting. Choose a table by the window or outdoor patio seating. Located in the Cadboro Commons building.</p>
           <ul>
             <li>daily hot meals</li>
@@ -280,15 +391,27 @@
           <p><strong>Lunch:</strong> 11:00am - 2:30pm</p>
           <p><strong>Dinner:</strong> 4:30pm - 7:30pm</p>
         </div>
-        <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="map">
-        </div>
       </div>
       <hr class="third">
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-1">
-          <?php smoothie_bar($today, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("11:00"));
+          $close = date("H:i A", strtotime("14:30"));
+          $late_open = date("H:i A", strtotime("16:30"));
+          $late_close = date("H:i A", strtotime("19:30"));
+          $open_img_sm = '<img src="/images/open.png" class="status_sm">';
+          $close_img_sm = '<img src="/images/closed.png" class="status_sm">';
+
+            if (((in_array($today, $mon_to_thurs) || ($today == "Friday")) && ($current_time >= $open) && ($current_time <= $close))){
+              echo $open_i;
+            } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_open) && ($current_time <= $late_close))){
+              echo $open_img_sm;
+            } else {
+              echo $close_img_sm;
+            }
+          ?>
         </div>
         <div class="col-md-2 text-right">
           <h4><a href="http://www.uvic.ca/services/food/where/villagegreens/smoothiebar/index.php"> Smoothie Bar</a></h4>
@@ -303,13 +426,25 @@
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php village_market($today, $weekdays, $weekends, $current_time, $open_img, $close_img) ?>
+          <?php
+          $open = date("H:i A", strtotime("11:00"));
+          $close = date("H:i A", strtotime("23:30"));
+          $weekend_open = date("H:i A", strtotime("11:30"));
+
+            if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
+              echo $open_i;
+            } elseif (in_array($today, $weekends) && ($current_time >= $weekend_open) && ($current_time <= $close)){
+              echo $open_i;
+            } else {
+              echo $close_i;
+            }
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/villagemarket/index.php">Village Market</a></h3>
           <img src="/images/village-market.jpg" class="location">
         </div>
-        <div class="col-md-5 writeup">
+        <div class="col-md-8 writeup">
           <p>Your one-stop campus convenience shop! Provides grab 'n go items as well as packaged foods and ingredients for you to prepare your own culinary creations.</p>
           <ul>
             <li>specialty items such as celiac offerings</li>
@@ -318,9 +453,6 @@
             <li>bakery and coffee selections</li>
             <li>household staples from toothpaste to laundry detergent</li>
           </ul>
-        </div>
-        <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="map">
         </div>
       </div>
     </div>
