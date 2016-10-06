@@ -37,7 +37,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/arts-map.gif" class="map">
+          <img src="/images/arts-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -61,7 +61,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/biblio-map.gif" class="map">
+          <img src="/images/biblio-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -87,7 +87,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="map">
+          <img src="/images/cad+caps+markets-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -111,7 +111,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="map">
+          <img src="/images/cad+caps+markets-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -134,7 +134,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/court-map.gif" class="map">
+          <img src="/images/court-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -157,7 +157,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/halftime-map.jpg" class="map">
+          <img src="/images/halftime-map.jpg" class="location map">
         </div>
       </div>
       <hr>
@@ -179,7 +179,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/mac-map.gif" class="map">
+          <img src="/images/mac-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -191,7 +191,7 @@
           <h3><a href="http://www.uvic.ca/services/food/where/mysticmarket/index.php">Mystic Market</a></h3>
           <img src="/images/mystic-market.jpg" class="location">
         </div>
-        <div class="col-md-8 writeup">
+        <div class="col-md-5 writeup">
           <p>Featuring 8 unique food kiosks that offer a diverse range of in-house prepared meals as well as a general store for pre-packaged foods and quick convenience items.</p>
           <p>With a modern, market-style layout and West Coast inspired design and décor, UVic’s newly launched Mystic Market sets a new standard in campus dining, creating a truly unique dining experience.</p>
           <p>Mystic is also the first <strong>ZERO</strong> Waste facility on campus.</p>
@@ -206,6 +206,9 @@
             <li><a href="http://www.uvic.ca/services/food/assets/docs/Treks%20-%20menu.pdf">Treks</a></li>
             <li><a href="http://www.uvic.ca/services/food/assets/docs/Vegout-menu.pdf">Vegout</a></li>
           </ul>
+        </div>
+        <div class="col-md-3">
+          <img src="/images/mystic-map.png" class="location map">
         </div>
       </div>
       <hr>
@@ -229,7 +232,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/nibbles-map.gif" class="map">
+          <img src="/images/nibbles-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -254,7 +257,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/scicafe-map.gif" class="map">
+          <img src="/images/scicafe-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -281,7 +284,7 @@
           <p><strong>Dinner:</strong> 4:30pm - 7:30pm</p>
         </div>
         <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="map">
+          <img src="/images/cad+caps+markets-map.gif" class="location map">
         </div>
       </div>
       <hr class="third">
@@ -320,7 +323,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="map">
+          <img src="/images/cad+caps+markets-map.gif" class="location map">
         </div>
       </div>
     </div>

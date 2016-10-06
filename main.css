@@ -31,12 +31,7 @@ img.location {
 }
 
 img.map {
-  width: 250px;
-  height: 200px;
-  border: solid #0B5995;
-  position: relative;
   margin-top: 55px;
-  /*margin-left: -150px;*/
 }
 
 img.status {
