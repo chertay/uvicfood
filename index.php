@@ -8,6 +8,7 @@
   <body>
 
     <?php
+    date_default_timezone_set('America/Vancouver');
     $today = date('l');
     $current_time = date("H:i A");
     $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
