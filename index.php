@@ -19,7 +19,7 @@
 
     <div class="container">
       <div class="row text-center">
-        <h1>UVic Restaurant Open/Close</h1>
+        <h1>UVic Food Services</h1>
       </div>
       <hr class="header">
       <div class="row text-center timenow">
