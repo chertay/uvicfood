@@ -1,6 +1,7 @@
 .container {
   padding: 40px;
 }
+
 h1 {
   color: #ffffff !important;
   border: double;
@@ -9,9 +10,15 @@ h1 {
   padding: 15px;
 }
 
+h3.cadboro {
+  font-size:22px;
+}
+
 .timenow {
   font-family: "Impact", sans-serif;
   color: #0B5995;
+  padding: 0px;
+  margin: 0px;
 }
 
 img.small_dot {
@@ -32,6 +39,16 @@ img.location {
   border-radius: 25%;
 }
 
+img.status {
+  border: solid #0B5995;
+  border-radius: 25%;
+}
+
+img.status_sm {
+  width:100px;
+  border: solid #0B5995;
+  border-radius: 25%;
+}
 ul.horizontal_list li{
   list-style: none;
   margin: 10px;
@@ -39,7 +56,16 @@ ul.horizontal_list li{
   float: left;
 }
 
+hr.header {
+  padding: 0px;
+  margin: 0px;
+}
+
 hr.third {
   margin-right: 0;
   width: 90%;
+}
+
+.writeup {
+  padding-top: 30px;
 }
