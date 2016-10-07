@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>Uvic Food</title>
-      <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="/style/style.php">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
+  <?php ob_start(); ?>
   <body>
 
     <?php include 'main.php';?>
@@ -93,7 +94,7 @@
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php caps_bistro($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php caps_bistro($today, $weekdays, $weekends, $current_time, $open_img, $close_img) ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/capsbistro/index.php">Cap's Bistro</a></h3>
@@ -263,7 +264,7 @@
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php village_greens($today, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
+          <?php village_greens($today, $weekdays, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/villagegreens/index.php">Village Greens</a></h3>
@@ -291,7 +292,7 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-1">
-          <?php smoothie_bar($today, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
+          <?php smoothie_bar($today, $weekdays, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
         </div>
         <div class="col-md-2 text-right">
           <h4><a href="http://www.uvic.ca/services/food/where/villagegreens/smoothiebar/index.php"> Smoothie Bar</a></h4>
@@ -328,4 +329,5 @@
       </div>
     </div>
   </body>
+  <?php ob_end_flush(); ?>
 </html>
