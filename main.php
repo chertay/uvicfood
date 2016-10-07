@@ -62,7 +62,7 @@ function cadboro_commons($current_time, $open_img, $close_img){
 }
 
 // Caps Bistro
-function caps_bistro($today, $weekdays, $current_time, $open_img, $close_img){
+function caps_bistro($today, $weekdays, $weekends, $current_time, $open_img, $close_img){
   $open = date("H:i A", strtotime("11:00"));
   $close = date("H:i A", strtotime("23:30"));
   $weekend_open = date("H:i A", strtotime("11:30"));
@@ -158,13 +158,13 @@ function scicafe($today, $weekdays, $current_time, $open_img, $close_img){
 }
 
 // Village Greens
-function village_greens($today, $mon_to_thurs, $current_time, $open_img, $close_img){
+function village_greens($today, $weekdays, $mon_to_thurs, $current_time, $open_img, $close_img){
   $open = date("H:i A", strtotime("11:00"));
   $close = date("H:i A", strtotime("14:30"));
   $late_open = date("H:i A", strtotime("16:30"));
   $late_close = date("H:i A", strtotime("19:30"));
 
-    if (((in_array($today, $mon_to_thurs) || ($today == "Friday")) && ($current_time >= $open) && ($current_time <= $close))){
+    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
       echo $open_img;
     } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_open) && ($current_time <= $late_close))){
       echo $open_img;
@@ -174,7 +174,7 @@ function village_greens($today, $mon_to_thurs, $current_time, $open_img, $close_
 }
 
 // Village Greens - Smoothie Bar
-function smoothie_bar($today, $mon_to_thurs, $current_time, $open_img, $close_img){
+function smoothie_bar($today, $weekdays, $mon_to_thurs, $current_time, $open_img, $close_img){
   $open = date("H:i A", strtotime("11:00"));
   $close = date("H:i A", strtotime("14:30"));
   $late_open = date("H:i A", strtotime("16:30"));
@@ -182,7 +182,7 @@ function smoothie_bar($today, $mon_to_thurs, $current_time, $open_img, $close_im
   $open_img_sm = '<img src="/images/general/open.png" class="status_sm">';
   $close_img_sm = '<img src="/images/general/closed.png" class="status_sm">';
 
-    if (((in_array($today, $mon_to_thurs) || ($today == "Friday")) && ($current_time >= $open) && ($current_time <= $close))){
+    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
       echo $open_img;
     } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_open) && ($current_time <= $late_close))){
       echo $open_img_sm;
@@ -192,7 +192,7 @@ function smoothie_bar($today, $mon_to_thurs, $current_time, $open_img, $close_im
 }
 
 // Village Market
-function village_market($today, $weekdays, $weekend, $current_time, $open_img, $close_img){
+function village_market($today, $weekdays, $weekends, $current_time, $open_img, $close_img){
   $open = date("H:i A", strtotime("11:00"));
   $close = date("H:i A", strtotime("23:30"));
   $weekend_open = date("H:i A", strtotime("11:30"));
