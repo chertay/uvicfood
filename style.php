@@ -64,8 +64,3 @@ hr.third {
 .writeup {
   padding-top: 30px;
 }
-
-#map {
-  /*height: 200px;*/
-  width: 100%;
-}
