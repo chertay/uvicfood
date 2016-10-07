@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>
-          <img src="/images/arts-place.jpg" class="location">
+          <img src="/images/storefronts/arts-place.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
       		<p>Award winning! Located in the Fine Arts building, Arts Place recently received an award for interior beauty in the wood design category. Bistro seating inside with seating areas directly outside.</p>
@@ -36,8 +36,8 @@
             <li>pastries, cakes and other sweets</li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <img src="/images/arts-map.gif" class="location map">
+        <div class="col-md-3 map">
+          <img src="/images/maps/arts-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -47,7 +47,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/bibliocafe/index.php">Bibliocafé</a></h3>
-          <img src="/images/bibliocafe.jpg" class="location">
+          <img src="/images/storefronts/bibliocafe.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
       		<p>Surrounded by glass, view the vivid seasonal changes while enjoying your selection – indoors with ample booth, table and comfortable circle chairs or outdoors with patio seating.</p>
@@ -61,7 +61,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/biblio-map.gif" class="location map">
+          <img src="/images/maps/biblio-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -71,7 +71,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3 class="cadboro"><a href="http://www.uvic.ca/services/food/where/cadborocommons/index.php">Cadboro Commons</a></h3>
-          <img src="/images/cadboro_commons.jpg" class="location">
+          <img src="/images/storefronts/cadboro_commons.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Come see what you’ve been missing! Large indoor seating allows for study area, private or group seating.</p>
@@ -87,7 +87,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="location map">
+          <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -97,7 +97,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/capsbistro/index.php">Cap's Bistro</a></h3>
-          <img src="/images/caps-bistro.jpg" class="location">
+          <img src="/images/storefronts/caps-bistro.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Offers charming table seating with natural lighting, as well as TV lounge area for leisure.</p>
@@ -111,7 +111,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="location map">
+          <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -121,7 +121,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/courtcafe/index.php">Court Café</a></h3>
-          <img src="/images/court-cafe.jpg" class="location">
+          <img src="/images/storefronts/court-cafe.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Nestled in the Fraser building with ample indoor seating.</p>
@@ -134,7 +134,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/court-map.gif" class="location map">
+          <img src="/images/maps/court-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -144,7 +144,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/halftime/index.php">Halftime</a></h3>
-          <img src="/images/halftime.jpg" class="location">
+          <img src="/images/storefronts/halftime.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Located in UVic's Centre for Athletics, Recreation and Special Abilities (CARSA) building just inside the main entrance across from CanAssist.</p>
@@ -157,7 +157,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/halftime-map.jpg" class="location map">
+          <img src="/images/maps/halftime-map.jpg" class="location map">
         </div>
       </div>
       <hr>
@@ -167,7 +167,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/macs/index.php">Macs</a></h3>
-          <img src="/images/macs.jpg" class="location">
+          <img src="/images/storefronts/macs.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Newly revamped with lounge seating and widescreen TVs! Enjoy table and individual seating in a relaxed environment. Located in the MacLaurin Building.</p>
@@ -179,17 +179,17 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/mac-map.gif" class="location map">
+          <img src="/images/maps/mac-map.gif" class="location map">
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php mystic_market($today, $mon_to_thurs, $current_time, $open_img, $close_img)?>
+          <?php mystic_market($today, $mon_to_thurs, $weekends, $current_time, $open_img, $close_img)?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/mysticmarket/index.php">Mystic Market</a></h3>
-          <img src="/images/mystic-market.jpg" class="location">
+          <img src="/images/storefronts/mystic-market.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Featuring 8 unique food kiosks that offer a diverse range of in-house prepared meals as well as a general store for pre-packaged foods and quick convenience items.</p>
@@ -208,7 +208,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/mystic-map.png" class="location map">
+          <img src="/images/maps/mystic-map.png" class="location map">
         </div>
       </div>
       <hr>
@@ -218,7 +218,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/nibblesbytes/index.php">Nibbles & Bytes</a></h3>
-          <img src="/images/nibbles.jpg" class="location">
+          <img src="/images/storefronts/nibbles.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Your Engineering Lab Wing food destination!</p>
@@ -232,7 +232,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/nibbles-map.gif" class="location map">
+          <img src="/images/maps/nibbles-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -242,7 +242,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/scicafe/index.php">SciCafé</a></h3>
-          <img src="/images/scicafe.jpg" class="location">
+          <img src="/images/storefronts/scicafe.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Comfortable bright seating area complete with natural lighting provides a perfect place to enjoy your selection.</p>
@@ -257,7 +257,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/scicafe-map.gif" class="location map">
+          <img src="/images/maps/scicafe-map.gif" class="location map">
         </div>
       </div>
       <hr>
@@ -267,7 +267,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/villagegreens/index.php">Village Greens</a></h3>
-          <img src="/images/village-greens.jpg" class="location">
+          <img src="/images/storefronts/village-greens.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Award winning vegetarian and vegan options. Enjoy booth or table seating with a trendy ambience and natural lighting. Choose a table by the window or outdoor patio seating. Located in the Cadboro Commons building.</p>
@@ -284,7 +284,7 @@
           <p><strong>Dinner:</strong> 4:30pm - 7:30pm</p>
         </div>
         <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="location map">
+          <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
         </div>
       </div>
       <hr class="third">
@@ -310,7 +310,7 @@
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/villagemarket/index.php">Village Market</a></h3>
-          <img src="/images/village-market.jpg" class="location">
+          <img src="/images/storefronts/village-market.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
           <p>Your one-stop campus convenience shop! Provides grab 'n go items as well as packaged foods and ingredients for you to prepare your own culinary creations.</p>
@@ -323,7 +323,7 @@
           </ul>
         </div>
         <div class="col-md-3">
-          <img src="/images/cad+caps+markets-map.gif" class="location map">
+          <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
         </div>
       </div>
     </div>

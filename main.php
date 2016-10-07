@@ -9,8 +9,8 @@ $current_time = date("H:i A");
 $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
 $weekends = array("Saturday", "Sunday");
-$open_img = '<img src="/images/open.png" class="status">';
-$close_img = '<img src="/images/closed.png" class="status">';
+$open_img = '<img src="/images/general/open.png" class="status">';
+$close_img = '<img src="/images/general/closed.png" class="status">';
 
 //Arts Place
 function arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img){
@@ -116,7 +116,7 @@ function macs($today, $mon_to_thurs, $current_time, $open_img, $close_img){
 }
 
 // Mystic Market
-function mystic_market($today, $mon_to_thurs, $current_time, $open_img, $close_img){
+function mystic_market($today, $mon_to_thurs, $weekends, $current_time, $open_img, $close_img){
   $open = date("H:i A", strtotime("8:00"));
   $weekend_open = date("H:i A", strtotime("9:00"));
   $close = date("H:i A", strtotime("19:00"));
@@ -179,8 +179,8 @@ function smoothie_bar($today, $mon_to_thurs, $current_time, $open_img, $close_im
   $close = date("H:i A", strtotime("14:30"));
   $late_open = date("H:i A", strtotime("16:30"));
   $late_close = date("H:i A", strtotime("19:30"));
-  $open_img_sm = '<img src="/images/open.png" class="status_sm">';
-  $close_img_sm = '<img src="/images/closed.png" class="status_sm">';
+  $open_img_sm = '<img src="/images/general/open.png" class="status_sm">';
+  $close_img_sm = '<img src="/images/general/closed.png" class="status_sm">';
 
     if (((in_array($today, $mon_to_thurs) || ($today == "Friday")) && ($current_time >= $open) && ($current_time <= $close))){
       echo $open_img;
