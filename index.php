@@ -16,11 +16,11 @@
       </div>
       <hr class="header">
       <div class="row text-center timenow">
-        <h3><?php
-        // echo date('l M jS h:i A');
-        echo "Today = " . $today;
-        echo "<br>";
-        echo "Time = " . $current_time;?></h4>
+        <h4><?php
+        echo date('l M jS h:i A');
+        // echo "Today = " . $today;
+        // echo "<br>";
+        // echo "Time = " . $current_time;?></h4>
       </div>
       <hr>
       <div class="row">
