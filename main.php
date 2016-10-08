@@ -4,8 +4,8 @@ include 'testing.php';
 date_default_timezone_set('America/Vancouver');
 
 //variables
-// $today = date('l');
-// $current_time = date("H:i A");
+$today = date('l');
+$current_time = date("H:i A");
 $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
 $weekends = array("Saturday", "Sunday");

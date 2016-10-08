@@ -220,11 +220,11 @@ date_default_timezone_set('America/Vancouver');
   // $current_time = date("H:i A", strtotime("23:30"));  // CP  VM                                  P
   // $current_time = date("H:i A", strtotime("24:00"));  //  everything closed                      P
 //
-$today = "Saturday";                                  //WHAT SHOULD BE OPEN:
+// $today = "Saturday";                                  //WHAT SHOULD BE OPEN:
 
   // $current_time = date("H:i A", strtotime("4:00"));   //  everything closed                      P
   // $current_time = date("H:i A", strtotime("7:00"));   //  everything closed                      P
-  $current_time = date("H:i A", strtotime("7:30"));   //  CD
+  // $current_time = date("H:i A", strtotime("7:30"));   //  CD
 //   $current_time = date("H:i A", strtotime("8:00"));   //  CD
 //   $current_time = date("H:i A", strtotime("8:30"));   //  CD
 //   $current_time = date("H:i A", strtotime("9:00"));   //  CD  MM
