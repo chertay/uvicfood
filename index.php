@@ -16,7 +16,11 @@
       </div>
       <hr class="header">
       <div class="row text-center timenow">
-        <h3><?php echo date('l M jS h:i A'); ?></h4>
+        <h3><?php
+        // echo date('l M jS h:i A');
+        echo "Today = " . $today;
+        echo "<br>";
+        echo "Time = " . $current_time;?></h4>
       </div>
       <hr>
       <div class="row">
@@ -68,7 +72,7 @@
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php cadboro_commons($current_time, $open_img, $close_img) ?>
+          <?php cadboro_commons($today, $current_time, $open_img, $close_img) ?>
         </div>
         <div class="col-md-3 text-right">
           <h3 class="cadboro"><a href="http://www.uvic.ca/services/food/where/cadborocommons/index.php">Cadboro Commons</a></h3>
@@ -292,7 +296,7 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-1">
-          <?php smoothie_bar($today, $weekdays, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
+          <?php smoothie_bar($today, $weekdays, $mon_to_thurs, $current_time) ?>
         </div>
         <div class="col-md-2 text-right">
           <h4><a href="http://www.uvic.ca/services/food/where/villagegreens/smoothiebar/index.php"> Smoothie Bar</a></h4>
