@@ -4,24 +4,33 @@ include 'testing.php';
 date_default_timezone_set('America/Vancouver');
 
 //variables
-$today = date('l');
-$current_time = date("H:i A");
+// $today = date('l');
+// $current_time = date("H:i A");
 $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
 $weekends = array("Saturday", "Sunday");
 $open_img = '<img src="/images/general/open.png" class="status">';
 $close_img = '<img src="/images/general/closed.png" class="status">';
+$closing_img = '<img src="/images/general/closing.jpg" class="warning">';
 
 //Arts Place
 function arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img){
   $open = date("H:i A", strtotime("8:00"));
   $close = date("H:i A", strtotime("15:00"));
   $fri_close = date("H:i A", strtotime("14:00"));
+  $main_close_in_30min = date("H:i A", strtotime("14:30"));
+  $fri_close_in_30min = date("H:i A", strtotime("13:30"));
 
   if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
     echo $open_img;
+    if (($current_time >= $main_close_in_30min) && ($current_time <= $close)){
+      echo "<p class= 'warning'> Closing at: " . $close;
+    }
   } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
     echo $open_img;
+    if (($current_time >= $fri_close_in_30min) && ($current_time <= $close)){
+      echo "<p class= 'warning'> Closing at: " . $fri_close;
+    }
   } else {
     echo $close_img;
   }

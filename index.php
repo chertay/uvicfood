@@ -21,7 +21,9 @@
       <hr>
       <div class="row">
         <div class="col-md-1">
-          <?php arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img);?>
+          <?php
+          arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img);
+          ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>

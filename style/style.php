@@ -69,3 +69,13 @@ hr.third {
 .writeup {
   padding-top: 30px;
 }
+
+.warning {
+  width: 1150px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Impact", sans-serif;
+  background-color: orange;
+  border: solid <?php echo $primary_color; ?>;
+  border-radius: <?php echo $standard_radius; ?>;
+}
