@@ -282,9 +282,6 @@
             <li>smoothie bar</li>
             <li>assorted beverages including coffee & tea</li>
           </ul>
-          <p><strong>Hot food served:</strong></p>
-          <p><strong>Lunch:</strong> 11:00am - 2:30pm</p>
-          <p><strong>Dinner:</strong> 4:30pm - 7:30pm</p>
         </div>
         <div class="col-md-3">
           <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
@@ -298,12 +295,12 @@
         </div>
         <div class="col-md-2 text-right">
           <h4><a href="http://www.uvic.ca/services/food/where/villagegreens/smoothiebar/index.php"> Smoothie Bar</a></h4>
+          <p><a href="http://www.uvic.ca/services/food/assets/docs/smoothie_bar_options.pdf">Smoothie Menu</a></p>
         </div>
         <div class="col-md-8 writeup">
           <p>Village Greens is also home to our fabulous Smoothie Bar. Featuring extended hours, weekly and seasonal specials and more.</p>
           <p>Delicious and nutritious! All smoothies are made with 100% real fruit and are available as vegan or with yogurt. See our smoothie menu board below for a list of our regular flavours.</p>
           <p>Need a healthy boost to fuel your studies or workday? Add green blend, soy or other healthy supplements for just $0.75!</p>
-          <p><a href="http://www.uvic.ca/services/food/assets/docs/smoothie_bar_options.pdf">Smoothie Menu</a></p>
         </div>
       </div>
       <hr>
