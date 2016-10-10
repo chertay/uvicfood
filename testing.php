@@ -25,15 +25,15 @@ date_default_timezone_set('America/Vancouver');
 // VM = Village Market/Smoothie Bar
 // VG = Village Greens
 
-// $today = "Monday";                                    //WHAT SHOULD BE OPEN:
+$today = "Monday";                                   //WHAT SHOULD BE OPEN:
 
-  // $current_time = date("H:i A", strtotime("4:00"));   //everything closed                        P
-  // $current_time = date("H:i A", strtotime("7:00"));   //everything closed                        P
-  // $current_time = date("H:i A", strtotime("7:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:00"));   //  A B CD CC  M MM  N S                   P
-  // $current_time = date("H:i A", strtotime("8:30"));   //  A B CD CC  M MM  N S                   P
-  // $current_time = date("H:i A", strtotime("9:00"));   //  A B CD  CC  H M MM  N S                P
-  // $current_time = date("H:i A", strtotime("9:30"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("04:00"));   //everything closed                        P
+  // $current_time = date("H:i A", strtotime("07:00"));   //everything closed                        P
+  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:00"));   //  A B CD CC  M MM  N S                   P
+  // $current_time = date("H:i A", strtotime("08:30"));   //  A B CD CC  M MM  N S                   P
+  // $current_time = date("H:i A", strtotime("09:00"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("09:30"));   //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:00"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:30"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("11:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
@@ -42,7 +42,7 @@ date_default_timezone_set('America/Vancouver');
   // $current_time = date("H:i A", strtotime("12:30"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
   // $current_time = date("H:i A", strtotime("13:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
   // $current_time = date("H:i A", strtotime("13:30"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
-  // $current_time = date("H:i A", strtotime("14:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
+  $current_time = date("H:i A", strtotime("14:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
   // $current_time = date("H:i A", strtotime("14:30"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
   // $current_time = date("H:i A", strtotime("15:00"));  //  A B CD  CC  H M MM  N S CP  VM         P
   // $current_time = date("H:i A", strtotime("15:30"));  //  B CD  H M MM  CP  VM                   P
@@ -66,13 +66,13 @@ date_default_timezone_set('America/Vancouver');
 //
 // $today = "Tuesday";                                      //WHAT SHOULD BE OPEN:
 
-  // $current_time = date("H:i A", strtotime("4:00"));   //everything closed                        P
-  // $current_time = date("H:i A", strtotime("7:00"));   //everything closed                        P
-  // $current_time = date("H:i A", strtotime("7:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:00"));   //  A B CD CC  M MM  N S                   P
-  // $current_time = date("H:i A", strtotime("8:30"));   //  A B CD CC  M MM  N S                   P
-  // $current_time = date("H:i A", strtotime("9:00"));   //  A B CD  CC  H M MM  N S                P
-  // $current_time = date("H:i A", strtotime("9:30"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("04:00"));   //everything closed                        P
+  // $current_time = date("H:i A", strtotime("07:00"));   //everything closed                        P
+  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:00"));   //  A B CD CC  M MM  N S                   P
+  // $current_time = date("H:i A", strtotime("08:30"));   //  A B CD CC  M MM  N S                   P
+  // $current_time = date("H:i A", strtotime("09:00"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("09:30"));   //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:00"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:30"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("11:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
@@ -105,13 +105,13 @@ date_default_timezone_set('America/Vancouver');
 //
 // $today = "Wednesday";                                 //WHAT SHOULD BE OPEN:
 
-  // $current_time = date("H:i A", strtotime("4:00"));   //everything closed                        P
-  // $current_time = date("H:i A", strtotime("7:00"));   //everything closed                        P
-  // $current_time = date("H:i A", strtotime("7:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:00"));   //  A B CD CC  M MM  N S                   P
-  // $current_time = date("H:i A", strtotime("8:30"));   //  A B CD CC  M MM  N S                   P
-  // $current_time = date("H:i A", strtotime("9:00"));   //  A B CD  CC  H M MM  N S                P
-  // $current_time = date("H:i A", strtotime("9:30"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("04:00"));   //everything closed                        P
+  // $current_time = date("H:i A", strtotime("07:00"));   //everything closed                        P
+  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:00"));   //  A B CD CC  M MM  N S                   P
+  // $current_time = date("H:i A", strtotime("08:30"));   //  A B CD CC  M MM  N S                   P
+  // $current_time = date("H:i A", strtotime("09:00"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("09:30"));   //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:00"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:30"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("11:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
@@ -144,13 +144,13 @@ date_default_timezone_set('America/Vancouver');
 //
 // $today = "Thursday";                                  //WHAT SHOULD BE OPEN:
 
-  // $current_time = date("H:i A", strtotime("4:00"));   //everything closed                        P
-  // $current_time = date("H:i A", strtotime("7:00"));   //everything closed                        P
-  // $current_time = date("H:i A", strtotime("7:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:00"));   //  A B CD CC  M MM  N S                   P
-  // $current_time = date("H:i A", strtotime("8:30"));   //  A B CD CC  M MM  N S                   P
-  // $current_time = date("H:i A", strtotime("9:00"));   //  A B CD  CC  H M MM  N S                P
-  // $current_time = date("H:i A", strtotime("9:30"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("04:00"));   //everything closed                        P
+  // $current_time = date("H:i A", strtotime("07:00"));   //everything closed                        P
+  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:00"));   //  A B CD CC  M MM  N S                   P
+  // $current_time = date("H:i A", strtotime("08:30"));   //  A B CD CC  M MM  N S                   P
+  // $current_time = date("H:i A", strtotime("09:00"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("09:30"));   //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:00"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:30"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("11:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
@@ -183,13 +183,13 @@ date_default_timezone_set('America/Vancouver');
 //
 // $today = "Friday";                                    //WHAT SHOULD BE OPEN:
 
-  // $current_time = date("H:i A", strtotime("4:00"));   //  everything closed                      P
-  // $current_time = date("H:i A", strtotime("7:00"));   //  everything closed                      P
-  // $current_time = date("H:i A", strtotime("7:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:00"));   //  A B CD  CC  M MM  N S                  P
-  // $current_time = date("H:i A", strtotime("8:30"));   //  A B CD  CC  M MM  N S                  P
-  // $current_time = date("H:i A", strtotime("9:00"));   //  A B CD  CC  H M MM  N S                P
-  // $current_time = date("H:i A", strtotime("9:30"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("04:00"));   //  everything closed                      P
+  // $current_time = date("H:i A", strtotime("07:00"));   //  everything closed                      P
+  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:00"));   //  A B CD  CC  M MM  N S                  P
+  // $current_time = date("H:i A", strtotime("08:30"));   //  A B CD  CC  M MM  N S                  P
+  // $current_time = date("H:i A", strtotime("09:00"));   //  A B CD  CC  H M MM  N S                P
+  // $current_time = date("H:i A", strtotime("09:30"));   //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:00"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("10:30"));  //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("11:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
@@ -222,13 +222,13 @@ date_default_timezone_set('America/Vancouver');
 //
 // $today = "Saturday";                                  //WHAT SHOULD BE OPEN:
 
-  // $current_time = date("H:i A", strtotime("4:00"));   //  everything closed                      P
-  // $current_time = date("H:i A", strtotime("7:00"));   //  everything closed                      P
-  // $current_time = date("H:i A", strtotime("7:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:00"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("9:00"));   //  CD  MM                                 P
-  // $current_time = date("H:i A", strtotime("9:30"));   //  CD  MM                                 P
+  // $current_time = date("H:i A", strtotime("04:00"));   //  everything closed                      P
+  // $current_time = date("H:i A", strtotime("07:00"));   //  everything closed                      P
+  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:00"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("09:00"));   //  CD  MM                                 P
+  // $current_time = date("H:i A", strtotime("09:30"));   //  CD  MM                                 P
   // $current_time = date("H:i A", strtotime("10:00"));  //  B CD  MM                               P
   // $current_time = date("H:i A", strtotime("10:30"));  //  B CD  MM                               P
   // $current_time = date("H:i A", strtotime("11:00"));  //  B CD  MM                               P
@@ -261,13 +261,13 @@ date_default_timezone_set('America/Vancouver');
 //
 // $today = "Sunday";                                    //WHAT SHOULD BE OPEN:
 
-  // $current_time = date("H:i A", strtotime("4:00"));   //  everything closed                      P
-  // $current_time = date("H:i A", strtotime("7:00"));   //  everything closed                      P
-  // $current_time = date("H:i A", strtotime("7:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:00"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("8:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("9:00"));   //  CD  MM                                 P
-  // $current_time = date("H:i A", strtotime("9:30"));   //  CD  MM                                 P
+  // $current_time = date("H:i A", strtotime("04:00"));   //  everything closed                      P
+  // $current_time = date("H:i A", strtotime("07:00"));   //  everything closed                      P
+  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:00"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("08:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("09:00"));   //  CD  MM                                 P
+  // $current_time = date("H:i A", strtotime("09:30"));   //  CD  MM                                 P
   // $current_time = date("H:i A", strtotime("10:00"));  //  B  CD MM                               P
   // $current_time = date("H:i A", strtotime("10:30"));  //  B  CD MM                               P
   // $current_time = date("H:i A", strtotime("11:00"));  //  B  CD MM                               P

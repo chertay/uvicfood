@@ -16,7 +16,13 @@
       </div>
       <hr class="header">
       <div class="row text-center timenow">
-        <h4><?php echo date('l M jS h:i A');?></h4>
+        <!-- <h4><?php echo date('l M jS h:i A');?></h4> -->
+        <h4>Testing</h4>
+        <?php
+        echo $today;
+        echo "<br>";
+        echo $current_time;
+        ?>
       </div>
       <hr>
       <div class="row">
