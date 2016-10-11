@@ -16,7 +16,7 @@
       </div>
       <hr class="header">
       <div class="row text-center timenow">
-        <h4><?php echo date('l M jS h:i A');?></h4>
+        <h4><?php echo date('l M jS g:i A');?></h4>
       </div>
       <hr>
       <div class="row">
