@@ -31,7 +31,7 @@ img.location {
 }
 
 img.map {
-  /*height: 250px;*/
+
   margin-top: 55px;
 }
 
@@ -63,4 +63,14 @@ hr.third {
 
 .writeup {
   padding-top: 30px;
+}
+
+.warning {
+  width: 1150px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Impact", sans-serif;
+  background-color: orange;
+  border: solid #0B5995;
+  border-radius: 25%;
 }

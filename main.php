@@ -4,12 +4,13 @@ date_default_timezone_set('America/Vancouver');
 //variables
 $today = date('l');
 $current_time = date("H:i A");
+
 $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
 $weekends = array("Saturday", "Sunday");
+
 $open_img = '<img src="/images/general/open.png" class="status">';
 $close_img = '<img src="/images/general/closed.png" class="status">';
-$closing_img = '<img src="/images/general/closing.jpg" class="warning">';
 
 //Arts Place
 function arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img){

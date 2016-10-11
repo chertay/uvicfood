@@ -25,12 +25,12 @@ date_default_timezone_set('America/Vancouver');
 // VM = Village Market/Smoothie Bar
 // VG = Village Greens
 
-// $today = "Monday";                                    //WHAT SHOULD BE OPEN:
+$today = "Monday";                                    //WHAT SHOULD BE OPEN:
 
   // $current_time = date("H:i A", strtotime("04:00"));   //everything closed                        P
   // $current_time = date("H:i A", strtotime("07:00"));   //everything closed                        P
   // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
-  // $current_time = date("H:i A", strtotime("08:00"));   //  A B CD CC  M MM  N S                   P
+  $current_time = date("H:i A", strtotime("08:00"));   //  A B CD CC  M MM  N S                   P
   // $current_time = date("H:i A", strtotime("08:30"));   //  A B CD CC  M MM  N S                   P
   // $current_time = date("H:i A", strtotime("09:00"));   //  A B CD  CC  H M MM  N S                P
   // $current_time = date("H:i A", strtotime("09:30"));   //  A B CD  CC  H M MM  N S                P
@@ -220,7 +220,7 @@ date_default_timezone_set('America/Vancouver');
   // $current_time = date("H:i A", strtotime("23:30"));  // CP  VM                                  P
   // $current_time = date("H:i A", strtotime("24:00"));  //  everything closed                      P
 //
-$today = "Saturday";                                  //WHAT SHOULD BE OPEN:
+// $today = "Saturday";                                  //WHAT SHOULD BE OPEN:
 
   // $current_time = date("H:i A", strtotime("04:00"));   //  everything closed                      P
   // $current_time = date("H:i A", strtotime("07:00"));   //  everything closed                      P
@@ -233,7 +233,7 @@ $today = "Saturday";                                  //WHAT SHOULD BE OPEN:
   // $current_time = date("H:i A", strtotime("10:30"));  //  B CD  MM                               P
   // $current_time = date("H:i A", strtotime("11:00"));  //  B CD  MM                               P
   // $current_time = date("H:i A", strtotime("11:30"));  //  B CD  MM  CP  VM                       P
-  $current_time = date("H:i A", strtotime("12:00"));  //  B CD  MM  CP  VM                       P
+  // $current_time = date("H:i A", strtotime("12:00"));  //  B CD  MM  CP  VM                       P
   // $current_time = date("H:i A", strtotime("12:30"));  //  B CD  MM  CP  VM                       P
   // $current_time = date("H:i A", strtotime("13:00"));  //  B CD  MM  CP  VM                       P
   // $current_time = date("H:i A", strtotime("13:30"));  //  B CD  MM  CP  VM                       P
