@@ -4,45 +4,75 @@
     <title>Uvic Food</title>
       <link rel="stylesheet" type="text/css" href="/style/main.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <meta name="viewport" content="width: device_width, initial-scale=1">
   </head>
   <?php ob_start(); ?>
   <body>
 
     <?php include 'main.php';?>
 
-    <div class="container">
+    <div class="header">
       <div class="row text-center">
-        <h1>UVic Food Services</h1>
+        <h1 id="title">UVic Food Services</h1>
       </div>
-      <hr class="header">
+      <hr class="headerline">
       <div class="row text-center timenow">
-        <h4><?php echo date('l M jS g:i A');?></h4>
+        <h2 id="day-time"><?php echo date('l M jS g:i A');?></h2>
       </div>
-      <hr>
+    </div>
+    <hr>
+    <div class="container text-center">
       <div class="row">
-        <div class="col-md-1">
+        <h2><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h2>
+        <img src="/images/storefronts/arts-place.jpg" class="location">
+      </div>
+      <div id="status" class="row">
+        <?php arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img); ?>
+      </div>
+      <div class="col-md-3">
+        <div class="col-md-6 writeup">
+          <p>Award winning! Located in the Fine Arts building, Arts Place recently received an award for interior beauty in the wood design category. Bistro seating inside with seating areas directly outside.</p>
+            <p>•  specialty coffees and teas</p>
+            <p>•  alternate beverages</p>
+            <p>•  salads</li>
+            <p>•  sandwiches and wraps</p>
+            <p>•  pastries, cakes and other sweets</p>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+      <div class="row map">
+        <img src="/images/maps/arts-map.gif" class="location map">
+      </div>
+    </div>
+      <!-- <div class="container text-center">
+        <div class="row">
+            <h3><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>
+            <img src="/images/storefronts/arts-place.jpg" class="location">
+        </div>
+        <div class="row">
           <?php
           arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img);
           ?>
         </div>
-        <div class="col-md-3 text-right">
-          <h3><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>
-          <img src="/images/storefronts/arts-place.jpg" class="location">
-        </div>
-        <div class="col-md-5 writeup">
-      		<p>Award winning! Located in the Fine Arts building, Arts Place recently received an award for interior beauty in the wood design category. Bistro seating inside with seating areas directly outside.</p>
-          <ul>
-            <li>specialty coffees and teas</li>
-            <li>alternate beverages</li>
-            <li>salads</li>
-            <li>sandwiches and wraps</li>
-            <li>pastries, cakes and other sweets</li>
-          </ul>
-        </div>
-        <div class="col-md-3 map">
+          <div class="col-md-3">
+            <div class="col-md-6 writeup">
+          		<p>Award winning! Located in the Fine Arts building, Arts Place recently received an award for interior beauty in the wood design category. Bistro seating inside with seating areas directly outside.</p>
+              <ul>
+                <li>•  specialty coffees and teas</li>
+                <li>•  alternate beverages</li>
+                <li>•  salads</li>
+                <li>•  sandwiches and wraps</li>
+                <li>•  pastries, cakes and other sweets</li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+            </div>
+          </div>
+        <div class="row map">
           <img src="/images/maps/arts-map.gif" class="location map">
         </div>
-      </div>
+      </div> -->
       <hr>
       <div class="row">
         <div class="col-md-1">

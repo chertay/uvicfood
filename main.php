@@ -1,16 +1,16 @@
 <?php
-// include "testing.php";
+include "testing.php";
 date_default_timezone_set('America/Vancouver');
 //variables
-$today = date('l');
-$current_time = date("H:i A");
+// $today = date('l');
+// $current_time = date("H:i A");
 
 $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
 $weekends = array("Saturday", "Sunday");
 
-$open_img = '<img src="/images/general/open.png" class="status">';
-$close_img = '<img src="/images/general/closed.png" class="status">';
+$open_img = '<img src="/images/general/open-h.png" class="status">';
+$close_img = '<img src="/images/general/closed-h.png" class="status">';
 
 //Arts Place
 function arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img){
@@ -31,12 +31,12 @@ function arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img)
   if (in_array($today, $mon_to_thurs) && ($current_time >= $opening) && ($current_time <= $closing)){
     echo $open_img;
     if (($current_time >= $main_warning) && ($current_time <= $closing)){
-      echo "<p class= 'warning'> Closing at: " . $close_display;
+      echo "<p class= 'warning'> Closing at " . $close_display;
     }
   } elseif (($today == "Friday") && ($current_time >= $opening) && ($current_time <= $fri_closing)){
     echo $open_img;
     if (($current_time >= $fri_warning) && ($current_time <= $fri_closing)){
-      echo "<p class= 'warning'> Closing at: " . $fri_close_display;
+      echo "<p class= 'warning'> Closing at " . $fri_close_display;
     }
   } else {
     echo $close_img;
@@ -64,22 +64,22 @@ function bibliocafe($today, $current_time, $mon_to_thurs, $open_img, $close_img)
   if (in_array($today, $mon_to_thurs) && ($current_time >= $opening) && ($current_time <= $closing)){
     echo $open_img;
     if (($current_time >= $main_warning) && ($current_time <= $closing)){
-      echo "<p class= 'warning'> Closing at: " . $close_display;
+      echo "<p class= 'warning'> Closing at " . $close_display;
     }
   } elseif (($today == "Friday") && ($current_time >= $opening) && ($current_time <= $fri_sat_closing)){
     echo $open_img;
     if (($current_time >= $fri_sat_warning) && ($current_time <= $fri_sat_closing)){
-      echo "<p class= 'warning'> Closing at: " . $fri_sat_close_display;
+      echo "<p class= 'warning'> Closing at " . $fri_sat_close_display;
     }
   } elseif (($today == "Saturday") && ($current_time >= $weekend_opening) && ($current_time <= $fri_sat_closing)){
     echo $open_img;
     if (($current_time >= $fri_sat_warning) && ($current_time <= $fri_sat_closing)){
-      echo "<p class= 'warning'> Closing at: " . $fri_sat_close_display;
+      echo "<p class= 'warning'> Closing at " . $fri_sat_close_display;
     }
   } elseif (($today == "Sunday") && ($current_time >= $weekend_opening) && ($current_time <= $closing)){
     echo $open_img;
     if (($current_time >= $main_warning) && ($current_time <= $closing)){
-      echo "<p class= 'warning'> Closing at: " . $close_display;
+      echo "<p class= 'warning'> Closing at " . $close_display;
     }
   } else {
     echo $close_img;
@@ -101,7 +101,7 @@ function cadboro_commons($today, $current_time, $open_img, $close_img){
   if (($current_time >= $opening) && ($current_time <= $closing)){
     echo $open_img;
     if (($current_time >= $warning) && ($current_time <= $closing)){
-      echo "<p class= 'warning'> Closing at: " . $close_display;
+      echo "<p class= 'warning'> Closing at " . $close_display;
     }
   } else {
     echo $close_img;
@@ -125,12 +125,12 @@ function caps_bistro($today, $weekdays, $weekends, $current_time, $open_img, $cl
     if (in_array($today, $weekdays) && ($current_time >= $opening) && ($current_time <= $closing)) {
       echo $open_img;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } elseif (in_array($today, $weekends) && ($current_time >= $weekend_opening) && ($current_time <= $closing)) {
       echo $open_img;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } else {
       echo $close_img;
@@ -152,7 +152,7 @@ function court_cafe($today, $weekdays, $current_time, $open_img, $close_img){
     if (in_array($today, $weekdays) && ($current_time >= $opening) && ($current_time <= $closing)){
       echo $open_img;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } else {
       echo $close_img;
@@ -174,7 +174,7 @@ function halftime($today, $weekdays, $current_time, $open_img, $close_img){
   if (in_array($today, $weekdays) && ($current_time >= $opening) && ($current_time <= $closing)){
     echo $open_img;
     if (($current_time >= $warning) && ($current_time <= $closing)){
-      echo "<p class= 'warning'> Closing at: " . $close_display;
+      echo "<p class= 'warning'> Closing at " . $close_display;
     }
   } else {
     echo $close_img;
@@ -200,12 +200,12 @@ function macs($today, $mon_to_thurs, $current_time, $open_img, $close_img){
   if (in_array($today, $mon_to_thurs) && ($current_time >= $opening) && ($current_time <= $closing)){
     echo $open_img;
     if (($current_time >= $main_warning) && ($current_time <= $closing)){
-      echo "<p class= 'warning'> Closing at: " . $close_display;
+      echo "<p class= 'warning'> Closing at " . $close_display;
     }
   } elseif (($today == "Friday") && ($current_time >= $opening) && ($current_time <= $fri_closing)){
     echo $open_img;
     if (($current_time >= $fri_warning) && ($current_time <= $fri_closing)){
-      echo "<p class= 'warning'> Closing at: " . $fri_close_display;
+      echo "<p class= 'warning'> Closing at " . $fri_close_display;
     }
   } else {
     echo $close_img;
@@ -233,17 +233,17 @@ function mystic_market($today, $mon_to_thurs, $weekends, $current_time, $open_im
     if (in_array($today, $mon_to_thurs) && ($current_time >= $opening) && ($current_time <= $closing)){
       echo $open_img;
       if (($current_time >= $main_warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } elseif (($today == "Friday") && ($current_time >= $opening) && ($current_time <= $early_closing)){
       echo $open_img;
       if (($current_time >= $early_warning) && ($current_time <= $early_closing)){
-        echo "<p class= 'warning'> Closing at: " . $early_close_display;
+        echo "<p class= 'warning'> Closing at " . $early_close_display;
       }
     } elseif (in_array($today, $weekends) && ($current_time >= $weekend_opening) && ($current_time <= $early_closing)){
       echo $open_img;
       if (($current_time >= $early_warning) && ($current_time <= $early_closing)){
-        echo "<p class= 'warning'> Closing at: " . $early_close_display;
+        echo "<p class= 'warning'> Closing at " . $early_close_display;
       }
     } else {
       echo $close_img;
@@ -265,7 +265,7 @@ function nibbles_and_bytes($today, $weekdays, $current_time, $open_img, $close_i
     if (in_array($today, $weekdays) && ($current_time >= $opening) && ($current_time <= $closing)){
       echo $open_img;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } else {
       echo $close_img;
@@ -286,7 +286,7 @@ function scicafe($today, $weekdays, $current_time, $open_img, $close_img){
     if (in_array($today, $weekdays) && ($current_time >= $opening) && ($current_time <= $closing)){
       echo $open_img;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } else {
       echo $close_img;
@@ -313,12 +313,12 @@ function village_greens($today, $weekdays, $mon_to_thurs, $current_time, $open_i
     if (in_array($today, $weekdays) && ($current_time >= $opening) && ($current_time <= $closing)){
       echo $open_img;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_opening) && ($current_time <= $late_closing))){
       echo $open_img;
       if (($current_time >= $late_warning) && ($current_time <= $late_closing)){
-        echo "<p class= 'warning'> Closing at: " . $late_close_display;
+        echo "<p class= 'warning'> Closing at " . $late_close_display;
       }
     } else {
       echo $close_img;
@@ -348,12 +348,12 @@ function smoothie_bar($today, $weekdays, $mon_to_thurs, $current_time){
     if (in_array($today, $weekdays) && ($current_time >= $opening) && ($current_time <= $closing)){
       echo $open_img_sm;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_opening) && ($current_time <= $late_closing))){
       echo $open_img_sm;
       if (($current_time >= $late_warning) && ($current_time <= $late_closing)){
-        echo "<p class= 'warning'> Closing at: " . $late_close_display;
+        echo "<p class= 'warning'> Closing at " . $late_close_display;
       }
     } else {
       echo $close_img_sm;
@@ -377,12 +377,12 @@ function village_market($today, $weekdays, $weekends, $current_time, $open_img, 
     if (in_array($today, $weekdays) && ($current_time >= $opening) && ($current_time <= $closing)){
       echo $open_img;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } elseif (in_array($today, $weekends) && ($current_time >= $weekend_opening) && ($current_time <= $closing)){
       echo $open_img;
       if (($current_time >= $warning) && ($current_time <= $closing)){
-        echo "<p class= 'warning'> Closing at: " . $close_display;
+        echo "<p class= 'warning'> Closing at " . $close_display;
       }
     } else {
       echo $close_img;
