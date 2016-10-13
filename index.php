@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Uvic Food</title>
+    <title>Uvic Food (mobile)</title>
       <link rel="stylesheet" type="text/css" href="/style/main.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <meta name="viewport" content="width: device_width, initial-scale=1.0">
