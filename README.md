@@ -9,6 +9,12 @@ This is my first attempt at combining Laravel and PHP to create an app so I want
 
 Currently, it is functioning at a basic level ~~although there needs to be some modification to the open/closed times so that the correct light is on when the closing time is XX:30 (currently, the one's with 30min (such as 11:30) times are glitchy)~~ Fixed 30min errors
 
+###Website at:
+https://uvicfood.herokuapp.com/
+
+###mobile version:
+https://uvicfood-mobile.herokuapp.com/
+
 ##Future Plans
 ~~Looking to set up a "countdown clock" that will display remaining time open when you are checking the app within 30min of the closing time.~~ Went an alternate route of simply displaying the closing time when the user checks within 30min of closing. 
 
