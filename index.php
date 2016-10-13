@@ -15,7 +15,7 @@
       <div class="row text-center">
         <h1 id="title">UVic Food Services</h1>
       </div>
-      <div class="row text-center timenow">
+      <div class="row text-center">
         <h2 id="day-time"><?php echo date('l M jS g:i A');?></h2>
       </div>
     </div>
@@ -240,7 +240,7 @@
         <img src="/images/storefronts/village-greens.jpg" class="location">
       </div>
       <div id="status" class="row">
-        <?php  ?>
+        <?php village_greens($today, $weekdays, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
       </div>
       <div class="row writeup">
         <p>Award winning vegetarian and vegan options. Enjoy booth or table seating with a trendy ambience and natural lighting. Choose a table by the window or outdoor patio seating. Located in the Cadboro Commons building.</p>
