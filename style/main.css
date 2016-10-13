@@ -5,7 +5,6 @@
   background-color: #0B5995;
   padding: 15px;
   max-width: 100%;
-  /*padding: 5%;*/
 }
 
 #day-time {
@@ -13,9 +12,11 @@
   color: #0B5995;
 }
 
+.header {
+  max-width: 100%;
+}
 .status {
   margin-top: 25px;
-  /*border: solid #0B5995;*/
   border: solid;
   width: 75%;
   max-width: 500px;
@@ -38,13 +39,7 @@ img.map {
 
 img.status_sm {
   width:100px;
-  /*border: solid #0B5995;*/
   border: solid;
-}
-
-hr.third {
-  margin-right: 0;
-  width: 90%;
 }
 
 .writeup {
