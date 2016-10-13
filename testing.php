@@ -299,4 +299,20 @@ $today = "Monday";                                    //WHAT SHOULD BE OPEN:
   // $current_time = date("H:i A", strtotime("24:00"));  //  everything closed                      P
 //
 
+// <div class="container-fluid text-center blue-back">
+//   <div class="row">
+//     <h2><a class=""  href="">Location Name</a></h2>
+//     <img src="/images/storefronts/???" class="location">
+//   </div>
+//   <div id="status" class="row">
+    // <?php?>
+  <!-- </div>
+  <div class="row writeup">
+
+  </div>
+  <div class="row">
+    <img src="/images/maps/??" class="location map">
+  </div> -->
+</div>
+
 ?>
