@@ -1,9 +1,9 @@
 <?php
-// include "testing.php";
+include "testing.php";
 date_default_timezone_set('America/Vancouver');
 //variables
-$today = date('l');
-$current_time = date("H:i A");
+// $today = date('l');
+// $current_time = date("H:i A");
 
 $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
@@ -22,24 +22,30 @@ function arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img)
   $closing = date("H:i A", strtotime($close));
   $fri_closing = date("H:i A", strtotime($fri_close));
 
-  $main_warning = date("H:i A", strtotime("$close-30min"));
-  $fri_warning = date("H:i A", strtotime("$fri_close-30min"));
+  $open_soon = date("H:i A", strtotime("$open-30min"));
+  $main_close_soon = date("H:i A", strtotime("$close-30min"));
+  $fri_close_soon = date("H:i A", strtotime("$fri_close-30min"));
 
+  $open_display = date("g:i A", strtotime($open));
   $close_display = date("g:i A", strtotime($close));
   $fri_close_display =date("g:i A", strtotime($fri_close));
 
-  if (in_array($today, $mon_to_thurs) && ($current_time >= $opening) && ($current_time <= $closing)){
+  // display whether open or closed
+  if (in_array($today, $mon_to_thurs) && ($current_time >= $opening) && ($current_time < $closing)){
     echo $open_img;
-    if (($current_time >= $main_warning) && ($current_time <= $closing)){
-      echo "<h2 class= 'warning'> Closing at " . $close_display;
-    }
-  } elseif (($today == "Friday") && ($current_time >= $opening) && ($current_time <= $fri_closing)){
+  } elseif (($today == "Friday") && ($current_time >= $opening) && ($current_time < $fri_closing)){
     echo $open_img;
-    if (($current_time >= $fri_warning) && ($current_time <= $fri_closing)){
-      echo "<h2 class= 'warning'> Closing at " . $fri_close_display;
-    }
   } else {
     echo $close_img;
+  }
+
+  // display opening or closing time  if opening or closing within 30min(or less)
+  if (((in_array($today, $mon_to_thurs) || ($today == "Friday")) && ($current_time >= $open_soon) && ($current_time < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $open_display;
+  } elseif ((in_array($today, $mon_to_thurs) && ($current_time >= $main_close_soon) && ($current_time < $closing))){
+    echo "<h2 class='notify-closing'> Closing at " . $close_display;
+  } elseif (($today == "Friday") && ($current_time >= $fri_close_soon) && ($current_time < $fri_closing)){
+    echo "<h2 class='notify-closing'> Closing at ". $fri_close_display .'</h2>';
   }
 }
 

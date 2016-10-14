@@ -16,7 +16,12 @@
         <h1 id="title">UVic Food Services</h1>
       </div>
       <div class="row text-center">
-        <h2 id="day-time"><?php echo date('l M jS g:i A');?></h2>
+
+        <?php
+        echo $today;
+        echo "<br>";
+        echo $current_time;
+        ?>
       </div>
     </div>
     <div class="container-fluid text-center blue-back">
@@ -26,6 +31,7 @@
       </div>
       <div id="status" class="row">
         <?php arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img); ?>
+
       </div>
         <div class="row writeup">
           <p>Award winning! Located in the Fine Arts building, Arts Place recently received an award for interior beauty in the wood design category. Bistro seating inside with seating areas directly outside.</p>
@@ -252,7 +258,7 @@
         <p>•  assorted beverages including coffee & tea</p>
         <p></p>
         <p>Village Greens is also home to our fabulous Smoothie Bar. Featuring extended hours, weekly and seasonal specials and more.</p>
-        <h3><a href="http://www.uvic.ca/services/food/assets/docs/smoothie_bar_options.pdf">Smoothie Menu</a></h3>
+        <h3><a class="white-text" href="http://www.uvic.ca/services/food/assets/docs/smoothie_bar_options.pdf">Smoothie Menu</a></h3>
         <p>Delicious and nutritious! All smoothies are made with 100% real fruit and are available as vegan or with yogurt. See our smoothie menu board below for a list of our regular flavours.</p>
         <p>Need a healthy boost to fuel your studies or workday? Add green blend, soy or other healthy supplements for just $0.75!</p>
       </div>
