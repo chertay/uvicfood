@@ -25,7 +25,7 @@ date_default_timezone_set('America/Vancouver');
 // VM = Village Market/Smoothie Bar
 // VG = Village Greens
 
-$today = "Monday";                                    //WHAT SHOULD BE OPEN:
+// $today = "Monday";                                    //WHAT SHOULD BE OPEN:
 
   // $current_time = date("H:i A", strtotime("04:00"));   //everything closed                        P
   // $current_time = date("H:i A", strtotime("07:00"));   //everything closed                        P
@@ -43,7 +43,7 @@ $today = "Monday";                                    //WHAT SHOULD BE OPEN:
   // $current_time = date("H:i A", strtotime("13:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
   // $current_time = date("H:i A", strtotime("13:30"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
   // $current_time = date("H:i A", strtotime("14:00"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
-  $current_time = date("H:i A", strtotime("14:30"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
+  // $current_time = date("H:i A", strtotime("14:30"));  //  A B CD  CC  H M MM  N S CP  VM  VG     P
   // $current_time = date("H:i A", strtotime("15:00"));  //  A B CD  CC  H M MM  N S CP  VM         P
   // $current_time = date("H:i A", strtotime("15:30"));  //  B CD  H M MM  CP  VM                   P
   // $current_time = date("H:i A", strtotime("16:00"));  //  B CD  H M MM  CP  VM                   P
@@ -220,11 +220,11 @@ $today = "Monday";                                    //WHAT SHOULD BE OPEN:
   // $current_time = date("H:i A", strtotime("23:30"));  // CP  VM                                  P
   // $current_time = date("H:i A", strtotime("24:00"));  //  everything closed                      P
 //
-// $today = "Saturday";                                  //WHAT SHOULD BE OPEN:
+$today = "Saturday";                                  //WHAT SHOULD BE OPEN:
 
   // $current_time = date("H:i A", strtotime("04:00"));   //  everything closed                      P
   // $current_time = date("H:i A", strtotime("07:00"));   //  everything closed                      P
-  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
   // $current_time = date("H:i A", strtotime("08:00"));   //  CD                                     P
   // $current_time = date("H:i A", strtotime("08:30"));   //  CD                                     P
   // $current_time = date("H:i A", strtotime("09:00"));   //  CD  MM                                 P
@@ -299,20 +299,6 @@ $today = "Monday";                                    //WHAT SHOULD BE OPEN:
   // $current_time = date("H:i A", strtotime("24:00"));  //  everything closed                      P
 //
 
-// <div class="container-fluid text-center blue-back">
-//   <div class="row">
-//     <h2><a class=""  href="">Location Name</a></h2>
-//     <img src="/images/storefronts/???" class="location">
-//   </div>
-//   <div id="status" class="row">
-    // <?php?>
-  <!-- </div>
-  <div class="row writeup">
 
-  </div>
-  <div class="row">
-    <img src="/images/maps/??" class="location map">
-  </div> -->
-</div>
 
 ?>

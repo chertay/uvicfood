@@ -1,11 +1,15 @@
-function initMap() {
-  var uluru = {lat: -25.363, lng: 131.044};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-  });
-}
+$(document).ready(function(){
+             setInterval(_initTimer, 1000);
+         });
+         function _initTimer(){
+             $.ajax({
+                 url: 'timer.php',
+                 success: function(data) {
+                    console.log(data);
+                     data = data.split(':');
+                     $('#hrs').html(data[0]);
+                     $('#mins').html(data[1]);
+                     $('#secs').html(data[2]);
+                 }
+             });
+         }
