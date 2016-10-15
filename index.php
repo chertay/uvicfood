@@ -16,12 +16,7 @@
         <h1 id="title">UVic Food Services</h1>
       </div>
       <div class="row text-center">
-
-        <?php
-        echo $today;
-        echo "<br>";
-        echo $current_time;
-        ?>
+        <h4><?php echo date('l M jS g:i A');?></h4>
       </div>
     </div>
     <div class="container-fluid text-center blue-back">
