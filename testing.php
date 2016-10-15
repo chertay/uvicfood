@@ -181,11 +181,11 @@ date_default_timezone_set('America/Vancouver');
   // $current_time = date("H:i A", strtotime("23:30"));  //  CP  VM                                 P
   // $current_time = date("H:i A", strtotime("24:00"));  //  everything closed                      P
 //
-$today = "Friday";                                    //WHAT SHOULD BE OPEN:
+// $today = "Friday";                                    //WHAT SHOULD BE OPEN:
 
   // $current_time = date("H:i A", strtotime("04:00"));   //  everything closed                      P
   // $current_time = date("H:i A", strtotime("07:00"));   //  everything closed                      P
-  $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
   // $current_time = date("H:i A", strtotime("08:00"));   //  A B CD  CC  M MM  N S                  P
   // $current_time = date("H:i A", strtotime("08:30"));   //  A B CD  CC  M MM  N S                  P
   // $current_time = date("H:i A", strtotime("09:00"));   //  A B CD  CC  H M MM  N S                P
@@ -220,11 +220,11 @@ $today = "Friday";                                    //WHAT SHOULD BE OPEN:
   // $current_time = date("H:i A", strtotime("23:30"));  // CP  VM                                  P
   // $current_time = date("H:i A", strtotime("24:00"));  //  everything closed                      P
 //
-// $today = "Saturday";                                  //WHAT SHOULD BE OPEN:
+$today = "Saturday";                                  //WHAT SHOULD BE OPEN:
 
   // $current_time = date("H:i A", strtotime("04:00"));   //  everything closed                      P
   // $current_time = date("H:i A", strtotime("07:00"));   //  everything closed                      P
-  // $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
+  $current_time = date("H:i A", strtotime("07:30"));   //  CD                                     P
   // $current_time = date("H:i A", strtotime("08:00"));   //  CD                                     P
   // $current_time = date("H:i A", strtotime("08:30"));   //  CD                                     P
   // $current_time = date("H:i A", strtotime("09:00"));   //  CD  MM                                 P

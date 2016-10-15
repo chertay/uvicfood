@@ -51,7 +51,7 @@
         <img src="/images/storefronts/bibliocafe.jpg" class="location">
       </div>
       <div id="status" class="row">
-        <?php bibliocafe($today, $current_time, $mon_to_thurs, $open_img, $close_img) ?>
+        <?php bibliocafe($today, $current_time, $mon_to_thurs, $weekends, $open_img, $close_img) ?>
       </div>
       <div class="row writeup">
     		<p>Surrounded by glass, view the vivid seasonal changes while enjoying your selection – indoors with ample booth, table and comfortable circle chairs or outdoors with patio seating.</p>
