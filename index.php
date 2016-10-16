@@ -8,7 +8,6 @@
   </head>
   <?php ob_start(); ?>
   <body>
-
     <?php include 'main.php';?>
 
     <div class="header">
@@ -16,7 +15,7 @@
         <h1 id="title">UVic Food Services</h1>
       </div>
       <div class="row text-center">
-        <h4><?php echo date('l M jS g:i A');?></h4>
+        <h4 id="day-time"><?php echo date('l M jS g:i A');?></h4>
       </div>
     </div>
     <div class="container-fluid text-center blue-back">
@@ -26,7 +25,6 @@
       </div>
       <div id="status" class="row">
         <?php arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img); ?>
-
       </div>
         <div class="row writeup">
           <p>Award winning! Located in the Fine Arts building, Arts Place recently received an award for interior beauty in the wood design category. Bistro seating inside with seating areas directly outside.</p>
