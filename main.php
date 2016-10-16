@@ -7,8 +7,8 @@ $current_time = date("H:i A");
 $mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
 $weekends = array("Saturday", "Sunday");
-$open_img = '<img src="/images/general/open-h.png" class="status">';
-$close_img = '<img src="/images/general/closed-h.png" class="status">';
+$open_img = '<img src="/images/general/open.png" class="status">';
+$close_img = '<img src="/images/general/closed.png" class="status">';
 //Arts Place
 function arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img){
   $open = "8:00";
