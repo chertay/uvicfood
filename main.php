@@ -1,298 +1,637 @@
 <?php
-
+// include "testing.php";
 date_default_timezone_set('America/Vancouver');
-
-//variables
+//general variables
 $today = date('l');
-$current_time = date("H:i A");
-$mon_to_thurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
+$currentTime = date("H:i A");
+
+$monToThurs = array("Monday", "Tuesday", "Wednesday", "Thursday");
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
 $weekends = array("Saturday", "Sunday");
-$open_img = '<img src="/images/general/open.png" class="status">';
-$close_img = '<img src="/images/general/closed.png" class="status">';
-$closing_img = '<img src="/images/general/closing.jpg" class="warning">';
+
+$openImg = '<img src="/images/general/open.png" class="status">';
+$closeImg = '<img src="/images/general/closed.png" class="status">';
 
 //Arts Place
-function arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img){
-  $open = date("H:i A", strtotime("8:00"));
-  $close = date("H:i A", strtotime("15:00"));
-  $fri_close = date("H:i A", strtotime("14:00"));
-  $main_close_warning = date("H:i A", strtotime("14:30"));
-  $fri_close_warning = date("H:i A", strtotime("13:30"));
 
-  if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
-    echo $open_img;
-    if (($current_time >= $main_close_warning) && ($current_time <= $close)){
-      echo "<p class= 'warning'> Closing at: " . $close;
-    }
-  } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
-    echo $open_img;
-    if (($current_time >= $fri_close_warning) && ($current_time <= $fri_close)){
-      echo "<p class= 'warning'> Closing at: " . $fri_close;
-    }
+// display whether open or closed
+function artsPlace($today, $currentTime, $monToThurs, $openImg, $closeImg){
+  $open = "8:00";
+  $close = "15:00";
+  $friClose = "14:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+  $friClosing = date("H:i A", strtotime($friClose));
+
+  if (in_array($today, $monToThurs) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
+  } elseif (($today == "Friday") && ($currentTime >= $opening) && ($currentTime < $friClosing)){
+    echo $openImg;
   } else {
-    echo $close_img;
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function artsPlaceNotifications($today, $currentTime, $monToThurs){
+  $open = "8:00";
+  $close = "15:00";
+  $friClose = "14:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+  $friClosing = date("H:i A", strtotime($friClose));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $mainCloseSoon = date("H:i A", strtotime("$close-30min"));
+  $friCloseSoon = date("H:i A", strtotime("$friClose-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $closeDisplay = date("g:i A", strtotime($close));
+  $fricloseDisplay =date("g:i A", strtotime($friClose));
+
+  if (((in_array($today, $monToThurs) || ($today == "Friday")) && ($currentTime >= $openSoon) && ($currentTime < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay;
+  } elseif ((in_array($today, $monToThurs) && ($currentTime >= $mainCloseSoon) && ($currentTime < $closing))){
+    echo "<h2 class='notify-closing'> Closing at " . $closeDisplay;
+  } elseif (($today == "Friday") && ($currentTime >= $friCloseSoon) && ($currentTime < $friClosing)){
+    echo "<h2 class='notify-closing'> Closing at ". $fricloseDisplay .'</h2>';
   }
 }
 
 //Bibliocafe
-function bibliocafe($today, $current_time, $mon_to_thurs, $open_img, $close_img){
-  $open = date("H:i A", strtotime("8:00"));
-  $close = date("H:i A", strtotime("21:00"));
-  $main_close_warning = date("H:i A", strtotime("20:30"));
-  $weekend_open = date("H:i A", strtotime("10:00"));
-  $fri_sat_close = date("H:i A", strtotime("16:00"));
-  $fri_sat_close_warning = date("H:i A", strtotime("15:30"));
 
-  if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
-    echo $open_img;
-    if (($current_time >= $main_close_warning) && ($current_time <= $close)){
-      echo "<p class= 'warning'> Closing at: " . $close;
-    }
-  } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_sat_close)){
-    echo $open_img;
-    if (($current_time >= $fri_sat_close_warning) && ($current_time <= $fri_sat_close)){
-      echo "<p class= 'warning'> Closing at: " . $fri_sat_close;
-    }
-  } elseif (($today == "Saturday") && ($current_time >= $weekend_open) && ($current_time <= $fri_sat_close)){
-    echo $open_img;
-    if (($current_time >= $fri_sat_close_warning) && ($current_time <= $fri_sat_close)){
-      echo "<p class= 'warning'> Closing at: " . $fri_sat_close;
-    }
-  } elseif (($today == "Sunday") && ($current_time >= $weekend_open) && ($current_time <= $close)){
-    echo $open_img;
-    if (($current_time >= $main_close_warning) && ($current_time <= $close)){
-      echo "<p class= 'warning'> Closing at: " . $close;
-    }
+// display whether open or closed
+function bibliocafe($today, $currentTime, $monToThurs, $weekends, $openImg, $closeImg){
+  $open = "8:00";
+  $close = "21:00";
+  $weekendOpen = "10:00";
+  $friSatClose = "16:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $weekendOpening = date("H:i A", strtotime($weekendOpen));
+  $closing = date("H:i A", strtotime($close));
+  $friSatClosing = date("H:i A", strtotime($friSatClose));
+
+  if (in_array($today, $monToThurs) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
+  } elseif (($today == "Friday") && ($currentTime >= $opening) && ($currentTime < $friSatClosing)){
+    echo $openImg;
+  } elseif (($today == "Saturday") && ($currentTime >= $weekendOpening) && ($currentTime < $friSatClosing)){
+    echo $openImg;
+  } elseif (($today == "Sunday") && ($currentTime >= $weekendOpening) && ($currentTime < $closing)){
+    echo $openImg;
   } else {
-    echo $close_img;
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function bibliocafeNotifications($today, $currentTime, $monToThurs, $weekends){
+  $open = "8:00";
+  $close = "21:00";
+  $weekendOpen = "10:00";
+  $friSatClose = "16:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $weekendOpening = date("H:i A", strtotime($weekendOpen));
+  $closing = date("H:i A", strtotime($close));
+  $friSatClosing = date("H:i A", strtotime($friSatClose));
+
+  $mainOpenSoon = date("H:i A", strtotime("$open-30min"));
+  $mainCloseSoon = date("H:i A", strtotime("$close-30min"));
+  $firSatCloseSoon = date("H:i A", strtotime("$friSatClose-30min"));
+  $weekendOpenSoon = date("H:i A", strtotime("$weekendOpen-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $weekendOpenDisplay = date("g:i A", strtotime($weekendOpen));
+  $closeDisplay = date("g:i A", strtotime($close));
+  $friSatCloseDisplay =date("g:i A", strtotime($friSatClose));
+
+  if ((in_array($today, $monToThurs) || ($today == "Friday")) && (($currentTime >= $mainOpenSoon) && ($currentTime < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+  } elseif ((in_array($today, $weekends) && (($currentTime >= $weekendOpenSoon) && ($currentTime < $weekendOpening)))){
+    echo "<h2 class='notify-opening'> Opening at " . $weekendOpenDisplay . "</h2>";
+  } elseif ((in_array($today, $monToThurs) || ($today == "Sunday")) && (($currentTime >= $mainCloseSoon) && ($currentTime < $closing))){
+    echo "<h2 class='notify-closing'> Closing at " . $closeDisplay . "</h2>";
+  } elseif ((($today == "Friday") || ($today == "Saturday")) && (($currentTime >= $firSatCloseSoon) && ($currentTime < $friSatClosing))){
+    echo "<h2 class='notify-closing'> Closing at " . $friSatCloseDisplay . "</h2>";
   }
 }
 
 // Cadboro Commons
-function cadboro_commons($today, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("7:30"));
-  $close = date("H:i A", strtotime("19:30"));
-  $close_warning = date("H:i A", strtotime("19:00"));
 
-  if (($current_time >= $open) && ($current_time <= $close)){
-    echo $open_img;
-    if (($current_time >= $close_warning) && ($current_time <= $close)){
-      echo "<p class= 'warning'> Closing at: " . $close;
-    }
+// display whether open or closed
+function cadboroCommons($today, $currentTime, $openImg, $closeImg){
+  $open = "7:30";
+  $close = "19:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  if (($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
   } else {
-    echo $close_img;
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function cadboroCommonsNotifications($today, $currentTime){
+  $open = "7:30";
+  $close = "19:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+
+  $openDisplay = date("g:i A", strtotime ($open));
+  $closeDisplay = date("g:i A", strtotime($close));
+
+  if (($currentTime >= $openSoon) && ($currentTime < $opening)){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+  } elseif (($currentTime >= $closeSoon) && ($currentTime < $closing)){
+    echo "<h2 class= 'warning'> Closing at " . $closeDisplay;
   }
 }
 
 // Caps Bistro
-function caps_bistro($today, $weekdays, $weekends, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("11:00"));
-  $close = date("H:i A", strtotime("23:30"));
-  $close_warning = date("H:i A", strtotime("23:00"));
-  $weekend_open = date("H:i A", strtotime("11:30"));
 
-    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)) {
-      echo $open_img;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } elseif (in_array($today, $weekends) && ($current_time >= $weekend_open) && ($current_time <= $close)) {
-      echo $open_img;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } else {
-      echo $close_img;
-    }
+// display whether open or closed
+function capsBistro($today, $weekdays, $weekends, $currentTime, $openImg, $closeImg){
+  $open = "11:00";
+  $weekendOpen = "11:30";
+  $close = "23:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $weekendOpening = date("H:i A", strtotime($weekendOpen));
+  $closing = date("H:i A", strtotime($close));
+
+  if (in_array($today, $weekdays) && ($currentTime >= $opening) && ($currentTime < $closing)) {
+    echo $openImg;
+  } elseif (in_array($today, $weekends) && ($currentTime >= $weekendOpening) && ($currentTime < $closing)) {
+    echo $openImg;
+  } else {
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function capsBistroNotifications($today, $weekdays, $weekends, $currentTime){
+  $open = "11:00";
+  $weekendOpen = "11:30";
+  $close = "23:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $weekendOpening = date("H:i A", strtotime($weekendOpen));
+  $closing = date("H:i A", strtotime($close));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $weekendOpenSoon = date("H:i A", strtotime("$weekendOpen-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $weekendOpenDisplay = date("g:i A", strtotime($weekendOpen));
+  $closeDisplay = date("g:i A", strtotime($close));
+
+  if (in_array($today, $weekdays) && (($currentTime >= $openSoon) && ($currentTime < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+  } elseif (in_array($today, $weekends) && (($currentTime >= $weekendOpenSoon) && ($currentTime < $weekendOpening))){
+    echo "<h2 class='notify-opening'> Opening at " . $weekendOpenDisplay . "</h2>";
+  } elseif (($currentTime >= $closeSoon) && ($currentTime < $closing)){
+    echo "<h2 class='notify-closing'> Closing at " . $closeDisplay;
+  }
 }
 
 // Court Cafe
-function court_cafe($today, $weekdays, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("8:00"));
-  $close = date("H:i A", strtotime("15:00"));
-  $close_warning = date("H:i A", strtotime("14:30"));
 
-    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
-      echo $open_img;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } else {
-      echo $close_img;
+// display whether open or closed
+function courtCafe($today, $weekdays, $currentTime, $openImg, $closeImg){
+  $open = "8:00";
+  $close = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  if (in_array($today, $weekdays) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
+  } else {
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function courtCafeNotifications($today, $weekdays, $currentTime){
+  $open = "8:00";
+  $close = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $closeDisplay = date("g:i A", strtotime($close));
+
+  if (in_array($today, $weekdays)){
+    if (($currentTime >= $openSoon) && ($currentTime < $opening)){
+      echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+    } elseif (($currentTime >= $closeSoon) && ($currentTime < $closing)){
+      echo "<h2 class='notify-closing'> Closing at " . $closeDisplay . "</h2>";
     }
+  }
 }
 
 // Halftime
-function halftime($today, $weekdays, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("9:00"));
-  $close = date("H:i A", strtotime("16:00"));
-  $close_warning = date("H:i A", strtotime("15:30"));
 
-  if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
-    echo $open_img;
-    if (($current_time >= $close_warning) && ($current_time <= $close)){
-      echo "<p class= 'warning'> Closing at: " . $close;
-    }
+// display whether open or closed
+function halftime($today, $weekdays, $currentTime, $openImg, $closeImg){
+  $open = "9:00";
+  $close = "16:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  if (in_array($today, $weekdays) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
   } else {
-    echo $close_img;
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function halftimeNotifications($today, $weekdays, $currentTime){
+  $open = "9:00";
+  $close = "16:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $closeDisplay = date("g:i A", strtotime($close));
+
+  if (in_array($today, $weekdays)){
+    if (($currentTime >= $openSoon) && ($currentTime < $opening)){
+      echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+    } elseif (($currentTime >= $closeSoon) && ($currentTime < $closing)){
+      echo "<h2 class='notify-closing'> Closing at " . $closeDisplay . "</h2>";
+    }
   }
 }
 
 // Macs
-function macs($today, $mon_to_thurs, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("8:00"));
-  $close = date("H:i A", strtotime("16:00"));
-  $main_close_warning = date("H:i A", strtotime("15:30"));
-  $fri_close = date("H:i A", strtotime("15:00"));
-  $fri_close_warning = date("H:i A", strtotime("14:30"));
 
-  if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
-    echo $open_img;
-    if (($current_time >= $main_close_warning) && ($current_time <= $close)){
-      echo "<p class= 'warning'> Closing at: " . $close;
-    }
-  } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $fri_close)){
-    echo $open_img;
-    if (($current_time >= $fri_close_warning) && ($current_time <= $fri_close)){
-      echo "<p class= 'warning'> Closing at: " . $fri_close;
-    }
+// display whether open or closed
+function macs($today, $monToThurs, $currentTime, $openImg, $closeImg){
+  $open = "8:00";
+  $close = "16:00";
+  $friClose = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+  $friClosing = date("H:i A", strtotime($friClose));
+
+  if (in_array($today, $monToThurs) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
+  } elseif (($today == "Friday") && ($currentTime >= $opening) && ($currentTime < $friClosing)){
+    echo $openImg;
   } else {
-    echo $close_img;
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function macsNotifications($today, $monToThurs, $currentTime){
+  $open = "8:00";
+  $close = "16:00";
+  $friClose = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+  $friClosing = date("H:i A", strtotime($friClose));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $mainCloseSoon = date("H:i A", strtotime("$close-30min"));
+  $friCloseSoon = date("H:i A", strtotime("$friClose-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $closeDisplay = date("g:i A", strtotime($close));
+  $fricloseDisplay =date("g:i A", strtotime($friClose));
+
+  if (((in_array($today, $monToThurs) || ($today == "Friday")) && ($currentTime >= $openSoon) && ($currentTime < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay;
+  } elseif ((in_array($today, $monToThurs) && ($currentTime >= $mainCloseSoon) && ($currentTime < $closing))){
+    echo "<h2 class='notify-closing'> Closing at " . $closeDisplay;
+  } elseif (($today == "Friday") && ($currentTime >= $friCloseSoon) && ($currentTime < $friClosing)){
+    echo "<h2 class='notify-closing'> Closing at ". $fricloseDisplay .'</h2>';
   }
 }
 
 // Mystic Market
-function mystic_market($today, $mon_to_thurs, $weekends, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("8:00"));
-  $weekend_open = date("H:i A", strtotime("9:00"));
-  $close = date("H:i A", strtotime("19:00"));
-  $main_close_warning = date("H:i A", strtotime("18:30"));
-  $early_close = date("H:i A", strtotime("15:00"));
-  $early_close_warning = date("H:i A", strtotime("14:30"));
 
-    if (in_array($today, $mon_to_thurs) && ($current_time >= $open) && ($current_time <= $close)){
-      echo $open_img;
-      if (($current_time >= $main_close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } elseif (($today == "Friday") && ($current_time >= $open) && ($current_time <= $early_close)){
-      echo $open_img;
-      if (($current_time >= $early_close_warning) && ($current_time <= $early_close)){
-        echo "<p class= 'warning'> Closing at: " . $early_close;
-      }
-    } elseif (in_array($today, $weekends) && ($current_time >= $weekend_open) && ($current_time <= $early_close)){
-      echo $open_img;
-      if (($current_time >= $early_close_warning) && ($current_time <= $early_close)){
-        echo "<p class= 'warning'> Closing at: " . $early_close;
-      }
-    } else {
-      echo $close_img;
-    }
+// display whether open or closed
+function mysticMarket($today, $monToThurs, $weekends, $currentTime, $openImg, $closeImg){
+  $open = "8:00";
+  $lateOpen = "9:00";
+  $close = "19:00";
+  $earlyClose = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $lateOpening = date("H:i A", strtotime($lateOpen));
+  $closing = date("H:i A", strtotime($close));
+  $earlyClosing = date("H:i A", strtotime($earlyClose));
+
+  if (in_array($today, $monToThurs) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
+  } elseif (($today == "Friday") && ($currentTime >= $opening) && ($currentTime < $earlyClosing)){
+    echo $openImg;
+  } elseif (in_array($today, $weekends) && ($currentTime >= $lateOpening) && ($currentTime < $earlyClosing)){
+    echo $openImg;
+  } else {
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function mysticMarketNotifications($today, $monToThurs, $weekends, $currentTime){
+  $open = "8:00";
+  $lateOpen = "9:00";
+  $close = "19:00";
+  $earlyClose = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $lateOpening = date("H:i A", strtotime($lateOpen));
+  $closing = date("H:i A", strtotime($close));
+  $earlyClosing = date("H:i A", strtotime($earlyClose));
+
+  $mainOpenSoon = date("H:i A", strtotime("$open-30min"));
+  $lateOpenSoon = date("H:i A", strtotime("$lateOpen-30min"));
+  $mainCloseSoon = date("H:i A", strtotime("$close-30min"));
+  $earlyCloseSoon = date("H:i A", strtotime("$earlyClose-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $lateOpenDisplay = date("g:i A", strtotime($lateOpen));
+  $closeDisplay = date("g:i A", strtotime($close));
+  $earlyCloseDisplay =date("g:i A", strtotime($earlyClose));
+
+  if (((in_array($today, $monToThurs) || ($today == "Friday")) && ($currentTime >= $mainOpenSoon) && ($currentTime < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay;
+  } elseif ((in_array($today, $weekends) && ($currentTime >= $lateOpenSoon) && ($currentTime < $lateOpening))){
+    echo "<h2 class='notify-opening'> Opening at " . $lateOpenDisplay;
+  } elseif ((in_array($today, $monToThurs) && ($currentTime >= $mainCloseSoon) && ($currentTime < $closing))){
+    echo "<h2 class='notify-closing'> Closing at " . $closeDisplay;
+  } elseif (((in_array($today, $weekends) || ($today == "Friday")) && ($currentTime >= $earlyCloseSoon) && ($currentTime < $earlyClosing))){
+    echo "<h2 class='notify-closing'> Closing at ". $earlyCloseDisplay .'</h2>';
+  }
 }
 
 // Nibbles and Bytes
-function nibbles_and_bytes($today, $weekdays, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("8:00"));
-  $close = date("H:i A", strtotime("15:00"));
-  $close_warning = date("H:i A", strtotime("14:30"));
 
-    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
-      echo $open_img;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } else {
-      echo $close_img;
+// display whether open or closed
+function nibbles($today, $weekdays, $currentTime, $openImg, $closeImg){
+  $open = "8:00";
+  $close = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  if (in_array($today, $weekdays) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
+  } else {
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function nibblesNotifications($today, $weekdays, $currentTime){
+  $open = "8:00";
+  $close = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $closeDisplay = date("g:i A", strtotime($close));
+
+  if (in_array($today, $weekdays)){
+    if (($currentTime >= $openSoon) && ($currentTime < $opening)){
+      echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+    } elseif (($currentTime >= $closeSoon) && ($currentTime < $closing)){
+      echo "<h2 class='notify-closing'> Closing at " . $closeDisplay . "</h2>";
     }
+  }
 }
 
 // SciCafe
-function scicafe($today, $weekdays, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("8:00"));
-  $close = date("H:i A", strtotime("15:00"));
-  $close_warning = date("H:i A", strtotime("14:30"));
 
-    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
-      echo $open_img;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } else {
-      echo $close_img;
+// display whether open or closed
+function scicafe($today, $weekdays, $currentTime, $openImg, $closeImg){
+  $open = "8:00";
+  $close = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  if (in_array($today, $weekdays) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
+  } else {
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function scicafeNotifications($today, $weekdays, $currentTime){
+  $open = "8:00";
+  $close = "15:00";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $closeDisplay = date("g:i A", strtotime($close));
+
+  if (in_array($today, $weekdays)){
+    if (($currentTime >= $openSoon) && ($currentTime < $opening)){
+      echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+    } elseif (($currentTime >= $closeSoon) && ($currentTime < $closing)){
+      echo "<h2 class='notify-closing'> Closing at " . $closeDisplay . "</h2>";
     }
+  }
 }
 
 // Village Greens
-function village_greens($today, $weekdays, $mon_to_thurs, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("11:00"));
-  $close = date("H:i A", strtotime("14:30"));
-  $close_warning = date("H:i A", strtotime("14:00"));
-  $late_open = date("H:i A", strtotime("16:30"));
-  $late_close = date("H:i A", strtotime("19:30"));
-  $late_close_warning = date("H:i A", strtotime("19:00"));
 
-    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
-      echo $open_img;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_open) && ($current_time <= $late_close))){
-      echo $open_img;
-      if (($current_time >= $late_close_warning) && ($current_time <= $late_close)){
-        echo "<p class= 'warning'> Closing at: " . $late_close;
-      }
-    } else {
-      echo $close_img;
-    }
+// display whether open or closed
+function villageGreens($today, $weekdays, $monToThurs, $currentTime, $openImg, $closeImg){
+  $open = "11:00";
+  $close = "14:30";
+  $lateOpen = "16:30";
+  $lateClose = "19:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+  $lateOpening = date("H:i A", strtotime($lateOpen));
+  $lateClosing = date("H:i A", strtotime($lateClose));
+
+  if (in_array($today, $weekdays) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImg;
+  } elseif (((in_array($today, $monToThurs) || ($today == "Sunday")) && ($currentTime >= $lateOpening) && ($currentTime < $lateClosing))){
+    echo $openImg;
+  } else {
+    echo $closeImg;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function villageGreensNotifications($today, $weekdays, $monToThurs, $currentTime){
+  $open = "11:00";
+  $close = "14:30";
+  $lateOpen = "16:30";
+  $lateClose = "19:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+  $lateOpening = date("H:i A", strtotime($lateOpen));
+  $lateClosing = date("H:i A", strtotime($lateClose));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $lateOpenSoon = date("H:i A", strtotime("$lateOpen-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+  $lateCloseSoon = date("H:i A", strtotime("$lateClose-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $lateOpenDisplay = date("g:i A", strtotime($lateOpen));
+  $closeDisplay = date("g:i A", strtotime($close));
+  $lateCloseDisplay = date("g:i A", strtotime($lateClose));
+
+  if (in_array($today, $weekdays) && (($currentTime >= $openSoon) && ($currentTime < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+  } elseif (in_array($today, $weekdays) && (($currentTime >= $closeSoon) && ($currentTime < $closing))){
+    echo "<h2 class='notify-closing'> Closing at " . $closeDisplay . "</h2>";
+  } elseif ((in_array($today, $monToThurs) || ($today == "Sunday")) && (($currentTime >= $lateOpenSoon) && ($currentTime < $lateOpening))){
+    echo "<h2 class='notify-opening'> Opening at " .$lateOpenDisplay . "</h2>";
+  } elseif ((in_array($today, $monToThurs) || ($today == "Sunday")) && (($currentTime >= $lateCloseSoon) && ($currentTime < $lateClosing))){
+      echo "<h2 class='notify-closing'> Closing at " . $lateCloseDisplay . "</h2>";
+  }
 }
 
 // Village Greens - Smoothie Bar
-function smoothie_bar($today, $weekdays, $mon_to_thurs, $current_time){
-  $open = date("H:i A", strtotime("11:00"));
-  $close = date("H:i A", strtotime("14:30"));
-  $late_open = date("H:i A", strtotime("16:30"));
-  $late_close = date("H:i A", strtotime("19:30"));
-  $open_img_sm = '<img src="/images/general/open.png" class="status_sm">';
-  $close_img_sm = '<img src="/images/general/closed.png" class="status_sm">';
-  $close_warning = date("H:i A", strtotime("14:00"));
-  $late_close_warning = date("H:i A", strtotime("19:00"));
 
-    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
-      echo $open_img_sm;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } elseif (((in_array($today, $mon_to_thurs) || ($today == "Sunday")) && ($current_time >= $late_open) && ($current_time <= $late_close))){
-      echo $open_img_sm;
-      if (($current_time >= $late_close_warning) && ($current_time <= $late_close)){
-        echo "<p class= 'warning'> Closing at: " . $late_close;
-      }
-    } else {
-      echo $close_img_sm;
-    }
+// display whether open or closed
+function smoothieBar($today, $weekdays, $monToThurs, $currentTime){
+  $open = "11:00";
+  $close = "14:30";
+  $lateOpen = "16:30";
+  $lateClose = "19:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+  $lateOpening = date("H:i A", strtotime($lateOpen));
+  $lateClosing = date("H:i A", strtotime($lateClose));
+
+  $openImgSm = '<img src="/images/general/open.png" class="status_sm">';
+  $closeImgSm = '<img src="/images/general/closed.png" class="status_sm">';
+
+  if (in_array($today, $weekdays) && ($currentTime >= $opening) && ($currentTime < $closing)){
+    echo $openImgSm;
+  } elseif (((in_array($today, $monToThurs) || ($today == "Sunday")) && ($currentTime >= $lateOpening) && ($currentTime < $lateClosing))){
+    echo $openImgSm;
+  } else {
+    echo $closeImgSm;
+  }
+}
+
+// display opening or closing time  if opening or closing within 30min
+function smoothieBarNotifications($today, $weekdays, $monToThurs, $currentTime){
+  $open = "11:00";
+  $close = "14:30";
+  $lateOpen = "16:30";
+  $lateClose = "19:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $closing = date("H:i A", strtotime($close));
+  $lateOpening = date("H:i A", strtotime($lateOpen));
+  $lateClosing = date("H:i A", strtotime($lateClose));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $lateOpenSoon = date("H:i A", strtotime("$lateOpen-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+  $lateCloseSoon = date("H:i A", strtotime("$lateClose-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $lateOpenDisplay = date("g:i A", strtotime($lateOpen));
+  $closeDisplay = date("g:i A", strtotime($close));
+  $lateCloseDisplay = date("g:i A", strtotime($lateClose));
+
+  if (in_array($today, $weekdays) && (($currentTime >= $openSoon) && ($currentTime < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+  } elseif (in_array($today, $weekdays) && (($currentTime >= $closeSoon) && ($currentTime < $closing))){
+    echo "<h2 class='notify-closing'> Closing at " . $closeDisplay . "</h2>";
+  } elseif ((in_array($today, $monToThurs) || ($today == "Sunday")) && (($currentTime >= $lateOpenSoon) && ($currentTime < $lateOpening))){
+    echo "<h2 class='notify-opening'> Opening at " .$lateOpenDisplay . "</h2>";
+  } elseif ((in_array($today, $monToThurs) || ($today == "Sunday")) && (($currentTime >= $lateCloseSoon) && ($currentTime < $lateClosing))){
+      echo "<h2 class='notify-closing'> Closing at " . $lateCloseDisplay . "</h2>";
+  }
 }
 
 // Village Market
-function village_market($today, $weekdays, $weekends, $current_time, $open_img, $close_img){
-  $open = date("H:i A", strtotime("11:00"));
-  $close = date("H:i A", strtotime("23:30"));
-  $weekend_open = date("H:i A", strtotime("11:30"));
-  $close_warning = date("H:i A", strtotime("23:00"));
 
-    if (in_array($today, $weekdays) && ($current_time >= $open) && ($current_time <= $close)){
-      echo $open_img;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } elseif (in_array($today, $weekends) && ($current_time >= $weekend_open) && ($current_time <= $close)){
-      echo $open_img;
-      if (($current_time >= $close_warning) && ($current_time <= $close)){
-        echo "<p class= 'warning'> Closing at: " . $close;
-      }
-    } else {
-      echo $close_img;
-    }
+// display whether open or closed
+function villageMarket($today, $weekdays, $weekends, $currentTime, $openImg, $closeImg){
+  $open = "11:00";
+  $weekendOpen = "11:30";
+  $close = "23:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $weekendOpening = date("H:i A", strtotime($weekendOpen));
+  $closing = date("H:i A", strtotime($close));
+
+  if (in_array($today, $weekdays) && ($currentTime >= $opening) && ($currentTime < $closing)) {
+    echo $openImg;
+  } elseif (in_array($today, $weekends) && ($currentTime >= $weekendOpening) && ($currentTime < $closing)) {
+    echo $openImg;
+  } else {
+    echo $closeImg;
+  }
 }
 
+// display opening or closing time  if opening or closing within 30min
+function villageMarketNotifications($today, $weekdays, $weekends, $currentTime){
+  $open = "11:00";
+  $weekendOpen = "11:30";
+  $close = "23:30";
+
+  $opening = date("H:i A", strtotime($open));
+  $weekendOpening = date("H:i A", strtotime($weekendOpen));
+  $closing = date("H:i A", strtotime($close));
+
+  $openSoon = date("H:i A", strtotime("$open-30min"));
+  $weekendOpenSoon = date("H:i A", strtotime("$weekendOpen-30min"));
+  $closeSoon = date("H:i A", strtotime("$close-30min"));
+
+  $openDisplay = date("g:i A", strtotime($open));
+  $weekendOpenDisplay = date("g:i A", strtotime($weekendOpen));
+  $closeDisplay = date("g:i A", strtotime($close));
+
+  if (in_array($today, $weekdays) && (($currentTime >= $openSoon) && ($currentTime < $opening))){
+    echo "<h2 class='notify-opening'> Opening at " . $openDisplay . "</h2>";
+  } elseif (in_array($today, $weekends) && (($currentTime >= $weekendOpenSoon) && ($currentTime < $weekendOpening))){
+    echo "<h2 class='notify-opening'> Opening at " . $weekendOpenDisplay . "</h2>";
+  } elseif (($currentTime >= $closeSoon) && ($currentTime < $closing)){
+    echo "<h2 class='notify-closing'> Closing at " . $closeDisplay;
+  }
+}
 ?>
