@@ -16,7 +16,7 @@ https://uvicfood.herokuapp.com/
 https://uvicfood-mobile.herokuapp.com/
 
 ##Future Plans
-~~Looking to set up a "countdown clock" that will display remaining time open when you are checking the app within 30min of the closing time.~~ Went an alternate route of simply displaying the closing time when the user checks within 30min of closing. 
+~~Looking to set up a "countdown clock" that will display remaining time open when you are checking the app within 30min of the closing time.~~ Went an alternate route of simply displaying the closing time when the user checks within 30min of closing.
 
 Adding in Google maps to provide directions to each location (of course, this will include the users current location) (for MVP, currently have a simple map showing the location)
 

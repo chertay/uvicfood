@@ -1,47 +1,59 @@
-h1 {
+#title {
   color: #ffffff !important;
   border: double;
-  border-radius: 10%;
+  border-radius: 25%;
   background-color: #0B5995;
   padding: 15px;
+  max-width: 100%;
 }
 
-.container {
-  padding: 40px;
-}
-
-h3.cadboro {
-  font-size:22px;
-}
-
-.timenow {
+#day-time {
   font-family: "Impact", sans-serif;
   color: #0B5995;
+  width: 250px;
+  margin: auto;
+  padding-bottom: 10px;
+}
+.header {
+  max-width: 100%;
 }
 
-img {
-  border-radius: 25%;
+.status {
+  margin-top: 25px;
+  border: solid;
+  height: 100%;
 }
+
+.status_sm {
+  width:100px;
+  margin-top: 25%;
+  margin-left: 100%;
+  border: solid;
+}
+
+img { border-radius: 25%; }
 
 img.location {
   width: 250px;
   height: 200px;
-  border: solid #0B5995;
+  border: solid;
   position: relative;
+  margin-top: 25px;
 }
 
 img.map {
-
-  margin-top: 55px;
+  margin-top: 80px;
 }
 
-img.status {
-  border: solid #0B5995;
+.writeup {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
-img.status_sm {
-  width:100px;
-  border: solid #0B5995;
+.cadboro {
+  font-size:22px;
 }
 
 ul.horizontal_list li{
@@ -51,18 +63,68 @@ ul.horizontal_list li{
   float: left;
 }
 
-hr.header {
-  padding: 0px;
-  margin: 0px;
+.notify-closing {
+  text-align: center;
+  font-family: "Impact", sans-serif;
+  background-color: orange;
+  color: #0B5995;
+  border-radius: 25%;
 }
 
-hr.third {
-  margin-right: 0;
-  width: 90%;
+
+
+.notify-opening {
+  text-align: center;
+  font-family: "Impact", sans-serif;
+  background-color: yellow;
+  color: #0B5995;
+  border-radius: 25%;
 }
 
-.writeup {
-  padding-top: 30px;
+a:link, a:visited, a:hover {
+  text-decoration: none;
+}
+
+.blue-text {
+  color: #0B5995;
+}
+
+.white-text {
+  color: #ffffff;
+}
+
+.blue-back {
+  background-color: #0B5995;
+  color: #ffffff;
+  padding-bottom: 20px;
+}
+
+.white-back {
+  background-color: #ffffff;
+  color: #0B5995;
+  padding-bottom: 20px;
+  border-left: solid 5px #0B5995;
+  border-right: solid 5px #0B5995;
+}
+
+.mystic-menus a{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#top-container {
+  border-radius: 5% 5% 0% 0%;
+}
+
+#bottom-container {
+  border-radius: 0% 0% 5% 5%;
+}
+
+.main_container {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: #CCDCE9;
+  /*background-color: #000000;*/
 }
 
 .warning {

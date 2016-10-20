@@ -10,23 +10,21 @@
 
     <?php include 'main.php';?>
 
-    <div class="container">
-      <div class="row text-center">
-        <h1>UVic Food Services</h1>
+    <div class="main_container">
+      <div class="container">
+        <div class="row text-center">
+          <h1 id="title">UVic Food Services</h1>
+        </div>
+        <div class="row text-center">
+          <?php echo "<h3 id='day-time'>" . date('l M jS') . "<br>" . date('h:i A') . "</h3>"; ?>
+        </div>
       </div>
-      <hr class="header">
-      <div class="row text-center timenow">
-        <h4><?php echo date('l M jS g:i A');?></h4>
-      </div>
-      <hr>
-      <div class="row">
+      <div id="top-container" class="container blue-back">
         <div class="col-md-1">
-          <?php
-          arts_place($today, $current_time, $mon_to_thurs, $open_img, $close_img);
-          ?>
+          <?php artsPlace($today, $currentTime, $monToThurs, $openImg, $closeImg);?>
         </div>
         <div class="col-md-3 text-right">
-          <h3><a href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>
+          <h3><a class="white-text" href="http://www.uvic.ca/services/food/where/artsplace/index.php">Arts Place</a></h3>
           <img src="/images/storefronts/arts-place.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
@@ -42,14 +40,16 @@
         <div class="col-md-3 map">
           <img src="/images/maps/arts-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php artsPlaceNotifications($today, $currentTime, $monToThurs); ?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container white-back">
         <div class="col-md-1">
-          <?php bibliocafe($today, $current_time, $mon_to_thurs, $open_img, $close_img) ?>
+          <?php bibliocafe($today, $currentTime, $monToThurs, $weekends, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
-          <h3><a href="http://www.uvic.ca/services/food/where/bibliocafe/index.php">Bibliocafé</a></h3>
+          <h3><a class="blue-text" href="http://www.uvic.ca/services/food/where/bibliocafe/index.php">Bibliocafé</a></h3>
           <img src="/images/storefronts/bibliocafe.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
@@ -66,14 +66,16 @@
         <div class="col-md-3">
           <img src="/images/maps/biblio-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php bibliocafeNotifications($today, $currentTime, $monToThurs, $weekends); ?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container blue-back">
         <div class="col-md-1">
-          <?php cadboro_commons($today, $current_time, $open_img, $close_img) ?>
+          <?php cadboroCommons($today, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
-          <h3 class="cadboro"><a href="http://www.uvic.ca/services/food/where/cadborocommons/index.php">Cadboro Commons</a></h3>
+          <h3 class="cadboro"><a class="white-text" href="http://www.uvic.ca/services/food/where/cadborocommons/index.php">Cadboro Commons</a></h3>
           <img src="/images/storefronts/cadboro_commons.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
@@ -92,11 +94,13 @@
         <div class="col-md-3">
           <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php cadboroCommonsNotifications($today, $currentTime); ?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container white-back">
         <div class="col-md-1">
-          <?php caps_bistro($today, $weekdays, $weekends, $current_time, $open_img, $close_img) ?>
+          <?php capsBistro($today, $weekdays, $weekends, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/capsbistro/index.php">Cap's Bistro</a></h3>
@@ -116,14 +120,16 @@
         <div class="col-md-3">
           <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php capsBistroNotifications($today, $weekdays, $weekends, $currentTime); ?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container blue-back">
         <div class="col-md-1">
-          <?php court_cafe($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php courtCafe($today, $weekdays, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
-          <h3><a href="http://www.uvic.ca/services/food/where/courtcafe/index.php">Court Café</a></h3>
+          <h3><a class="white-text" href="http://www.uvic.ca/services/food/where/courtcafe/index.php">Court Café</a></h3>
           <img src="/images/storefronts/court-cafe.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
@@ -139,11 +145,13 @@
         <div class="col-md-3">
           <img src="/images/maps/court-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php courtCafeNotifications($today, $weekdays, $currentTime); ?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container white-back">
         <div class="col-md-1">
-          <?php halftime($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php halftime($today, $weekdays, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/halftime/index.php">Halftime</a></h3>
@@ -162,14 +170,16 @@
         <div class="col-md-3">
           <img src="/images/maps/halftime-map.jpg" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php halftimeNotifications($today, $weekdays, $currentTime);?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container blue-back">
         <div class="col-md-1">
-          <?php macs($today, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
+          <?php macs($today, $monToThurs, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
-          <h3><a href="http://www.uvic.ca/services/food/where/macs/index.php">Macs</a></h3>
+          <h3><a class="white-text" href="http://www.uvic.ca/services/food/where/macs/index.php">Macs</a></h3>
           <img src="/images/storefronts/macs.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
@@ -184,11 +194,13 @@
         <div class="col-md-3">
           <img src="/images/maps/mac-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php macsNotifications($today, $monToThurs, $currentTime);?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container white-back">
         <div class="col-md-1">
-          <?php mystic_market($today, $mon_to_thurs, $weekends, $current_time, $open_img, $close_img)?>
+          <?php mysticMarket($today, $monToThurs, $weekends, $currentTime, $openImg, $closeImg)?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/mysticmarket/index.php">Mystic Market</a></h3>
@@ -213,14 +225,16 @@
         <div class="col-md-3">
           <img src="/images/maps/mystic-map.png" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php mysticMarketNotifications($today, $monToThurs, $weekends, $currentTime);?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container blue-back">
         <div class="col-md-1">
-          <?php nibbles_and_bytes($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php nibbles($today, $weekdays, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
-          <h3><a href="http://www.uvic.ca/services/food/where/nibblesbytes/index.php">Nibbles & Bytes</a></h3>
+          <h3><a class="white-text" href="http://www.uvic.ca/services/food/where/nibblesbytes/index.php">Nibbles & Bytes</a></h3>
           <img src="/images/storefronts/nibbles.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
@@ -237,11 +251,13 @@
         <div class="col-md-3">
           <img src="/images/maps/nibbles-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php nibblesNotifications($today, $weekdays, $currentTime);?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container white-back">
         <div class="col-md-1">
-          <?php scicafe($today, $weekdays, $current_time, $open_img, $close_img) ?>
+          <?php scicafe($today, $weekdays, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
           <h3><a href="http://www.uvic.ca/services/food/where/scicafe/index.php">SciCafé</a></h3>
@@ -262,14 +278,16 @@
         <div class="col-md-3">
           <img src="/images/maps/scicafe-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php scicafeNotifications($today, $weekdays, $currentTime);?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div class="container blue-back">
         <div class="col-md-1">
-          <?php village_greens($today, $weekdays, $mon_to_thurs, $current_time, $open_img, $close_img) ?>
+          <?php villageGreens($today, $weekdays, $monToThurs, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
-          <h3><a href="http://www.uvic.ca/services/food/where/villagegreens/index.php">Village Greens</a></h3>
+          <h3><a class="white-text" href="http://www.uvic.ca/services/food/where/villagegreens/index.php">Village Greens</a></h3>
           <img src="/images/storefronts/village-greens.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
@@ -286,30 +304,35 @@
         <div class="col-md-3">
           <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
         </div>
+        <div class="col-md-12">
+          <?php villageGreensNotifications($today, $weekdays, $monToThurs, $currentTime);?>
+        </div>
       </div>
-      <hr class="third">
-      <div class="row">
-        <div class="col-md-1"></div>
+      <div class="container white-back">
         <div class="col-md-1">
-          <?php smoothie_bar($today, $weekdays, $mon_to_thurs, $current_time) ?>
+          <?php smoothieBar($today, $weekdays, $monToThurs, $currentTime); ?>
+        </div>
+        <div class="col-md-1">
         </div>
         <div class="col-md-2 text-right">
-          <h4><a href="http://www.uvic.ca/services/food/where/villagegreens/smoothiebar/index.php"> Smoothie Bar</a></h4>
-          <p><a href="http://www.uvic.ca/services/food/assets/docs/smoothie_bar_options.pdf">Smoothie Menu</a></p>
+          <h3><a href="http://www.uvic.ca/services/food/where/villagegreens/smoothiebar/index.php"> Smoothie Bar</a></h3>
+          <p><a href="http://www.uvic.ca/services/food/assets/docs/smoothieBar_options.pdf">Smoothie Menu</a></p>
         </div>
         <div class="col-md-8 writeup">
           <p>Village Greens is also home to our fabulous Smoothie Bar. Featuring extended hours, weekly and seasonal specials and more.</p>
           <p>Delicious and nutritious! All smoothies are made with 100% real fruit and are available as vegan or with yogurt. See our smoothie menu board below for a list of our regular flavours.</p>
           <p>Need a healthy boost to fuel your studies or workday? Add green blend, soy or other healthy supplements for just $0.75!</p>
         </div>
+        <div class="col-md-12">
+          <?php smoothieBarNotifications($today, $weekdays, $monToThurs, $currentTime);?>
+        </div>
       </div>
-      <hr>
-      <div class="row">
+      <div id="bottom-container" class="container blue-back">
         <div class="col-md-1">
-          <?php village_market($today, $weekdays, $weekends, $current_time, $open_img, $close_img) ?>
+          <?php villageMarket($today, $weekdays, $weekends, $currentTime, $openImg, $closeImg) ?>
         </div>
         <div class="col-md-3 text-right">
-          <h3><a href="http://www.uvic.ca/services/food/where/villagemarket/index.php">Village Market</a></h3>
+          <h3><a class="white-text" href="http://www.uvic.ca/services/food/where/villagemarket/index.php">Village Market</a></h3>
           <img src="/images/storefronts/village-market.jpg" class="location">
         </div>
         <div class="col-md-5 writeup">
@@ -324,6 +347,9 @@
         </div>
         <div class="col-md-3">
           <img src="/images/maps/cad+caps+markets-map.gif" class="location map">
+        </div>
+        <div class="col-md-12">
+          <?php villageMarketNotifications($today, $weekdays, $weekends, $currentTime);?>
         </div>
       </div>
     </div>
