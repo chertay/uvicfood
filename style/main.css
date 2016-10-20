@@ -126,3 +126,13 @@ a:link, a:visited, a:hover {
   background-color: #CCDCE9;
   /*background-color: #000000;*/
 }
+
+.warning {
+  width: 1150px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Impact", sans-serif;
+  background-color: orange;
+  border: solid #0B5995;
+  border-radius: 25%;
+}

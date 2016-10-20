@@ -25,12 +25,13 @@ date_default_timezone_set('America/Vancouver');
 // VM = Village Market/Smoothie Bar
 // VG = Village Greens
 
-$today = "Monday";                                    //WHAT SHOULD BE OPEN:
+// $today = "Monday";                                    //WHAT SHOULD BE OPEN:
+
 
   // $currentTime = date("H:i A", strtotime("4:00"));   //everything closed                        P
   // $currentTime = date("H:i A", strtotime("7:00"));   //everything closed                        P
   // $currentTime = date("H:i A", strtotime("7:30"));   //  CD                                     P
-  $currentTime = date("H:i A", strtotime("8:00"));   //  A B CD CC  M MM  N S                   P
+  // $currentTime = date("H:i A", strtotime("8:00"));   //  A B CD CC  M MM  N S                   P
   // $currentTime = date("H:i A", strtotime("8:30"));   //  A B CD CC  M MM  N S                   P
   // $currentTime = date("H:i A", strtotime("9:00"));   //  A B CD  CC  H M MM  N S                P
   // $currentTime = date("H:i A", strtotime("9:30"));   //  A B CD  CC  H M MM  N S                P
@@ -297,5 +298,5 @@ $today = "Monday";                                    //WHAT SHOULD BE OPEN:
   // $currentTime = date("H:i A", strtotime("23:00"));  //  CP  VM                                 P
   // $currentTime = date("H:i A", strtotime("23:30"));  //  CP  VM                                 P
   // $currentTime = date("H:i A", strtotime("24:00"));  //  everything closed                      P
-//
+
 ?>

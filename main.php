@@ -1,6 +1,7 @@
 <?php
 // include "testing.php";
 date_default_timezone_set('America/Vancouver');
+
 //general variables
 $today = date('l');
 $currentTime = date("H:i A");
@@ -59,7 +60,6 @@ function artsPlaceNotifications($today, $currentTime, $monToThurs){
     echo "<h2 class='notify-closing'> Closing at ". $fricloseDisplay .'</h2>';
   }
 }
-
 //Bibliocafe
 
 // display whether open or closed
@@ -119,7 +119,6 @@ function bibliocafeNotifications($today, $currentTime, $monToThurs, $weekends){
     echo "<h2 class='notify-closing'> Closing at " . $friSatCloseDisplay . "</h2>";
   }
 }
-
 // Cadboro Commons
 
 // display whether open or closed
@@ -157,7 +156,6 @@ function cadboroCommonsNotifications($today, $currentTime){
     echo "<h2 class= 'warning'> Closing at " . $closeDisplay;
   }
 }
-
 // Caps Bistro
 
 // display whether open or closed
@@ -205,7 +203,6 @@ function capsBistroNotifications($today, $weekdays, $weekends, $currentTime){
     echo "<h2 class='notify-closing'> Closing at " . $closeDisplay;
   }
 }
-
 // Court Cafe
 
 // display whether open or closed
@@ -245,7 +242,6 @@ function courtCafeNotifications($today, $weekdays, $currentTime){
     }
   }
 }
-
 // Halftime
 
 // display whether open or closed
@@ -333,7 +329,6 @@ function macsNotifications($today, $monToThurs, $currentTime){
     echo "<h2 class='notify-closing'> Closing at ". $fricloseDisplay .'</h2>';
   }
 }
-
 // Mystic Market
 
 // display whether open or closed
@@ -391,7 +386,6 @@ function mysticMarketNotifications($today, $monToThurs, $weekends, $currentTime)
     echo "<h2 class='notify-closing'> Closing at ". $earlyCloseDisplay .'</h2>';
   }
 }
-
 // Nibbles and Bytes
 
 // display whether open or closed
@@ -431,7 +425,6 @@ function nibblesNotifications($today, $weekdays, $currentTime){
     }
   }
 }
-
 // SciCafe
 
 // display whether open or closed
@@ -471,7 +464,6 @@ function scicafeNotifications($today, $weekdays, $currentTime){
     }
   }
 }
-
 // Village Greens
 
 // display whether open or closed
@@ -527,7 +519,6 @@ function villageGreensNotifications($today, $weekdays, $monToThurs, $currentTime
       echo "<h2 class='notify-closing'> Closing at " . $lateCloseDisplay . "</h2>";
   }
 }
-
 // Village Greens - Smoothie Bar
 
 // display whether open or closed
@@ -586,7 +577,6 @@ function smoothieBarNotifications($today, $weekdays, $monToThurs, $currentTime){
       echo "<h2 class='notify-closing'> Closing at " . $lateCloseDisplay . "</h2>";
   }
 }
-
 // Village Market
 
 // display whether open or closed
@@ -634,4 +624,5 @@ function villageMarketNotifications($today, $weekdays, $weekends, $currentTime){
     echo "<h2 class='notify-closing'> Closing at " . $closeDisplay;
   }
 }
+
 ?>
