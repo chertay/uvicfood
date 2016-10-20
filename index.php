@@ -16,7 +16,7 @@
           <h1 id="title">UVic Food Services</h1>
         </div>
         <div class="row text-center">
-          <?php echo "<h3 id='day-time'>" . date('l M jS') . "<br>" . date('h:i A') . "</h3>"; ?>
+          <?php echo "<h3 id='day-time'>" . date('l M jS') . "<br>" . date('g:i A') . "</h3>"; ?>
         </div>
       </div>
       <div id="top-container" class="container blue-back">
